@@ -4907,20 +4907,32 @@ function setupHerokuKeepAlive() {
     const onHeroku = !!(process.env.HEROKU || process.env.DYNO);
     if (onHeroku) {
         UltraCleanLogger.info('🔧 Setting up Heroku keep-alive system...');
-        
+
         // Auto-restart prevention
         let restartCount = 0;
         const maxDailyRestarts = 5;
-        
-        // Periodic activity to prevent sleeping
+
+        // Auto-detect the Heroku app URL from HEROKU_APP_NAME (auto-set by Heroku)
+        // so the user doesn't have to manually set HEROKU_URL.
+        const autoUrl = process.env.HEROKU_APP_NAME
+            ? `https://${process.env.HEROKU_APP_NAME}.herokuapp.com`
+            : null;
+
+        // Periodic activity to prevent sleeping (every 15 minutes — well under
+        // Heroku's 30-minute sleep threshold)
         setInterval(() => {
             lastActivityTime = Date.now();
-            const appUrl = process.env.HEROKU_URL || process.env.APP_URL || process.env.RENDER_EXTERNAL_URL;
+            const appUrl = process.env.HEROKU_URL || process.env.APP_URL || process.env.RENDER_EXTERNAL_URL || autoUrl;
             if (appUrl) {
                 fetch(appUrl.startsWith('http') ? appUrl : `https://${appUrl}`, { signal: AbortSignal.timeout(10000) })
                     .catch(() => {});
             }
-        }, 20 * 60 * 1000); // Every 20 minutes
+        }, 15 * 60 * 1000); // Every 15 minutes
+
+        // Send an immediate ping on startup so the first sleep timer resets
+        if (autoUrl) {
+            fetch(autoUrl, { signal: AbortSignal.timeout(5000) }).catch(() => {});
+        }
         
         // Memory monitoring for Heroku
         setInterval(() => {
@@ -9682,11 +9694,14 @@ async function handleDefaultCommands(commandName, sock, msg, args, currentPrefix
 //   uncaughtException / unhandledRejection — logged; bot restarts via main() after 8 s
 async function main() {
     try {
-        // ====== WEB SERVER — must bind to PORT before anything else (Heroku boot timeout) ======
-        try { await _dbInitPromise; } catch {}
-        // printStartupBox removed — replaced by printWolfStartupBlock in handleConnectionOpen
+        // ====== WEB SERVER — must bind to PORT IMMEDIATELY (before anything else)
+        // to avoid Heroku R10 boot timeout (60s). Database init can happen
+        // asynchronously AFTER the web server is listening. ======
         await setupWebServer();
         setupHerokuKeepAlive();
+
+        // Now init the database (non-blocking — web server is already listening)
+        try { await _dbInitPromise; } catch {}
 
         // ====== HEROKU DETECTION & SETUP ======
         const isHeroku = process.env.HEROKU_APP_NAME || process.env.DYNO || process.env.HEROKU_API_KEY || false;
