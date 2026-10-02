@@ -81,8 +81,7 @@ function buildMenu(message, commands) {
 
   // Status dashboard
   text += `┏▣ ◈ *${botName.toUpperCase()}* ◈\n`;
-  text += `┃ *ᴏᴡɴᴇʀ* : KLAUS TECH\n`;
-  text += `┃ *ɴᴜᴍʙᴇʀ* : +254711815459\n`;
+  text += `┃ *ᴏᴡɴᴇʀ* : Not Set\n`;
   text += `┃ *ᴘʀᴇғɪx* : [ ${prefix} ]\n`;
   text += `┃ *ʜᴏsᴛ* : ${platform}\n`;
   text += `┃ *ᴘʟᴜɢɪɴs* : ${commands}\n`;
@@ -104,8 +103,7 @@ function buildMenu(message, commands) {
     text += `┗▣\n\n`;
   }
 
-  text += `◈ ♔ OWNER : KLAUS TECH\n`;
-  text += `◈ +254711815459\n`;
+  text += `◈ ♔ OWNER : Not Set\n`;
   text += `◈ ◇ POWERED BY KLAUS LABS ◇`;
 
   return text;
