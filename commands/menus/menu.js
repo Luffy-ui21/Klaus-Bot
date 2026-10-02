@@ -73,20 +73,16 @@ function buildMenu(message) {
   const botName = getBotName();
   const access = message.key.remoteJid?.endsWith('@g.us') ? 'GROUP' : 'PRIVATE';
   const date = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+  const time = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 
   return [
-    `╭─⌈ ⚡ ${botName.toUpperCase()} ⌋`,
-    `│`,
-    `├─⊷ 📱 Access: ${access}`,
-    `├─⊷ ⚙️ Prefix: ${prefix}`,
-    `├─imiter 📅 Date: ${date}`,
-    `├─imiter ✅ Status: ONLINE`,
-    `│`,
-    `╰──────────────────`,
+    `┃◈ ⚡ ${botName.toUpperCase()} ◈`,
+    `┃◈ 📅 ${date} · ${time}`,
+    `┃◈ 📱 ${access} · Prefix: ${prefix}`,
+    `┃◈ ✅ ONLINE`,
+    `┃□`,
     ``,
     getBoxStyleCommands(),
-    ``,
-    `⚡ ${botName} · ${getFooter(message.key.participant || message.key.remoteJid)}`,
   ].join('\n');
 }
 
