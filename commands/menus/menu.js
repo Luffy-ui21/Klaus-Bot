@@ -18,7 +18,6 @@ function localPath(...parts) {
 }
 
 async function getMenuMedia() {
-  // KLAUS MD: support both JPG and PNG menu images.
   const customGif = localPath('data', 'wolfbot_menu_custom.gif');
   const customImageJpg = localPath('data', 'wolfbot_menu_custom.jpg');
   const customImagePng = localPath('data', 'wolfbot_menu_custom.png');
@@ -39,7 +38,7 @@ async function getMenuMedia() {
       mediaCache = { kind: 'gif', buffer: fs.readFileSync(gifPath), mp4: null };
       mediaCacheAt = now;
       const tempDir = localPath('tmp');
-      const outputPath = path.join(tempDir, 'wolfbot-menu.mp4');
+      const outputPath = path.join(tempDir, 'klasu-menu.mp4');
       fs.mkdirSync(tempDir, { recursive: true });
       exec(`ffmpeg -y -i "${gifPath}" -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" -c:v libx264 -pix_fmt yuv420p -preset fast -crf 23 -movflags +faststart -an "${outputPath}"`, { timeout: 25000 })
         .then(() => { mediaCache.mp4 = fs.readFileSync(outputPath); })
@@ -71,24 +70,23 @@ function getPrefix() {
 
 function buildMenu(message) {
   const prefix = getPrefix();
-  const botName = getBotName().toUpperCase();
+  const botName = getBotName();
   const access = message.key.remoteJid?.endsWith('@g.us') ? 'GROUP' : 'PRIVATE';
-  const line = '----------------------------------------';
+  const date = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
 
   return [
-    `WOLFBOT / ${botName}`,
-    line,
-    'COMMAND CENTRE',
-    `ACCESS   ${access}`,
-    `PREFIX   ${prefix}`,
-    'STATUS   READY',
-    line,
-    '',
+    `╭─⌈ ⚡ ${botName.toUpperCase()} ⌋`,
+    `│`,
+    `├─⊷ 📱 Access: ${access}`,
+    `├─⊷ ⚙️ Prefix: ${prefix}`,
+    `├─imiter 📅 Date: ${date}`,
+    `├─imiter ✅ Status: ONLINE`,
+    `│`,
+    `╰──────────────────`,
+    ``,
     getBoxStyleCommands(),
-    '',
-    line,
-    `QUICK: ${prefix}menu | ${prefix}ping`,
-    getFooter(message.key.participant || message.key.remoteJid)
+    ``,
+    `⚡ ${botName} · ${getFooter(message.key.participant || message.key.remoteJid)}`,
   ].join('\n');
 }
 
@@ -106,7 +104,7 @@ async function sendMenu(sock, jid, message, text, media) {
 
 export default {
   name: 'menu',
-  description: 'Shows the WOLFBOT command centre',
+  description: 'Shows the KLAUS MD command centre',
   async execute(sock, message) {
     const jid = message.key.remoteJid;
     const text = buildMenu(message);

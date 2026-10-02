@@ -12,7 +12,7 @@ try {
 
 export default {
   name: "menu2",
-  alias: ["menulist", "categories", "allmenu", "menus"],
+  alias: ["menulist", "categories", "menus"],
   desc: "Shows all category menus with buttons",
   category: "Menu",
   usage: ".menu2",
