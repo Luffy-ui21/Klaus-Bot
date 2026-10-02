@@ -114,6 +114,24 @@ export default {
   description: 'Shows the KLAUS MD menu',
   async execute(sock, message) {
     const jid = message.key.remoteJid;
+
+    // Step 1: React with ⏳ (loading)
+    try {
+      await sock.sendMessage(jid, { react: { text: '⏳', key: message.key } });
+    } catch {}
+
+    // Step 2: Send "Loading menu..." status message
+    await sock.sendMessage(jid, { text: '◈ Loading menu...' }, { quoted: message });
+
+    // Step 3: Small delay to show the loading animation
+    await new Promise(r => setTimeout(r, 1500));
+
+    // Step 4: React with 📋 (menu ready)
+    try {
+      await sock.sendMessage(jid, { react: { text: '📋', key: message.key } });
+    } catch {}
+
+    // Step 5: Build and send the full menu
     const cmdCount = global.commands?.size || 0;
     const text = buildMenu(message, cmdCount);
     const media = await getMenuMedia();
