@@ -1,12 +1,9 @@
 import fs from 'fs';
 import path from 'path';
-import os from 'os';
 import { fileURLToPath } from 'url';
 import { exec as execCallback } from 'child_process';
 import { promisify } from 'util';
 import { getBotName } from '../../lib/botname.js';
-import { getFooter } from '../../lib/menuHelper.js';
-import { getBoxStyleCommands } from './commandList.js';
 
 const exec = promisify(execCallback);
 const menuDirectory = path.dirname(fileURLToPath(import.meta.url));
@@ -69,15 +66,13 @@ function getPrefix() {
   return global.prefix || process.env.PREFIX || '.';
 }
 
-// ── Build a RAM usage bar using Unicode block characters ──────────────────
 function ramBar(percent) {
   const filled = Math.round(percent / 10);
   const empty = 10 - filled;
   return `[${'█'.repeat(filled)}${'░'.repeat(empty)}] ${Math.round(percent)}%`;
 }
 
-// ── Build the status dashboard (shown first when .menu is typed) ──────────
-function buildStatusDashboard(message, commands, startTime) {
+function buildMenu(message, commands, startTime) {
   const prefix = getPrefix();
   const botName = getBotName();
   const mem = process.memoryUsage();
@@ -95,12 +90,6 @@ function buildStatusDashboard(message, commands, startTime) {
   const ownerNum = global.OWNER_NUMBER || process.env.OWNER_NUMBER || '254711815459';
   const speed = Math.round(process.uptime() * 1000) % 1000;
 
-  // Advanced Unicode symbols (not emojis):
-  // ◈ = White diamond containing black small diamond
-  // ◇ = White diamond
-  // █ = Full block (filled)
-  // ░ = Light shade (empty)
-  // ┌ ┐ └ ┘ ─ │ = Box drawing characters
   return [
     `◈ ◇ ${botName.toUpperCase()} ◇`,
     ``,
@@ -116,9 +105,170 @@ function buildStatusDashboard(message, commands, startTime) {
     `RAM : ${ramBar(memPercent)}`,
     `UPTIME : ${uptimeH}h ${uptimeM}m`,
     `NODE : ${nodeVersion}`,
+    `□`,
     ``,
-    `◈ Type ${prefix}menu2 for full command list`,
-    `◈ ${botName} ◈ KLAUS TECH`,
+    `◈ ❖ ADMIN MENU ❖`,
+    `➥ .add`,
+    `➥ .promote`,
+    `➥ .demote`,
+    `➥ .kick`,
+    `➥ .ban`,
+    `➥ .unban`,
+    `➥ .mute`,
+    `➥ .unmute`,
+    `➥ .warn`,
+    `➥ .setname`,
+    `➥ .setdesc`,
+    `➥ .revoke`,
+    `➥ .tagall`,
+    `➥ .hidetag`,
+    `➥ .link`,
+    `➥ .leave`,
+    `□`,
+    ``,
+    `◈ ❖ ANTI MENU ❖`,
+    `➥ .antilink`,
+    `➥ .antibot`,
+    `➥ .anticall`,
+    `➥ .antidelete`,
+    `➥ .antisticker`,
+    `➥ .antiimage`,
+    `➥ .antivideo`,
+    `➥ .antiaudio`,
+    `□`,
+    ``,
+    `◈ ❖ AI MENU ❖`,
+    `➥ .chatgpt`,
+    `➥ .gemini`,
+    `➥ .claudeai`,
+    `➥ .deepseek`,
+    `➥ .copilot`,
+    `➥ .blackbox`,
+    `➥ .bing`,
+    `➥ .bard`,
+    `➥ .cohere`,
+    `➥ .falcon`,
+    `➥ .dolphin`,
+    `□`,
+    ``,
+    `◈ ❖ MEDIA MENU ❖`,
+    `➥ .song`,
+    `➥ .play`,
+    `➥ .ytmusic`,
+    `➥ .ytv`,
+    `➥ .ytmp4`,
+    `➥ .tts`,
+    `➥ .tovoice`,
+    `➥ .tovideo`,
+    `➥ .tosticker`,
+    `➥ .toimage`,
+    `➥ .vv`,
+    `➥ .status`,
+    `➥ .groupst`,
+    `➥ .logo`,
+    `□`,
+    ``,
+    `◈ ❖ DOWNLOAD MENU ❖`,
+    `➥ .facebook`,
+    `➥ .instagram`,
+    `➥ .twitter`,
+    `➥ .snapchat`,
+    `➥ .mediafire`,
+    `➥ .apk`,
+    `➥ .playlist`,
+    `□`,
+    ``,
+    `◈ ❖ DESIGN MENU ❖`,
+    `➥ .neonlogo`,
+    `➥ .firelogo`,
+    `➥ .goldlogo`,
+    `➥ .silverlogo`,
+    `➥ .rainbowlogo`,
+    `➥ .dragonlogo`,
+    `➥ .phoenixlogo`,
+    `➥ .moonlogo`,
+    `➥ .lightninglogo`,
+    `➥ .crystallogo`,
+    `□`,
+    ``,
+    `◈ ❖ TOOLS MENU ❖`,
+    `➥ .ping`,
+    `➥ .uptime`,
+    `➥ .speed`,
+    `➥ .translate`,
+    `➥ .wiki`,
+    `➥ .define`,
+    `➥ .weather`,
+    `➥ .calc`,
+    `➥ .qr`,
+    `➥ .url`,
+    `➥ .shorturl`,
+    `➥ .google`,
+    `➥ .remind`,
+    `➥ .iplookup`,
+    `□`,
+    ``,
+    `◈ ❖ FUN MENU ❖`,
+    `➥ .truth`,
+    `➥ .dare`,
+    `➥ .joke`,
+    `➥ .quote`,
+    `➥ .fact`,
+    `➥ .dice`,
+    `➥ .8ball`,
+    `➥ .coinflip`,
+    `➥ .slots`,
+    `➥ .trivia`,
+    `➥ .wordle`,
+    `➥ .chess`,
+    `□`,
+    ``,
+    `◈ ❖ MUSIC MENU ❖`,
+    `➥ .lyrics`,
+    `➥ .shazam`,
+    `➥ .spotify`,
+    `➥ .musicmenu`,
+    `□`,
+    ``,
+    `◈ ❖ GAMES MENU ❖`,
+    `➥ .chess`,
+    `➥ .wordle`,
+    `➥ .trivia`,
+    `➥ .slots`,
+    `➥ .hangman`,
+    `➥ .snake`,
+    `➥ .numberguess`,
+    `➥ .memory`,
+    `➥ .ttt`,
+    `□`,
+    ``,
+    `◈ ❖ INFO MENU ❖`,
+    `➥ .owner`,
+    `➥ .about`,
+    `➥ .repo`,
+    `➥ .whoami`,
+    `➥ .sessioninfo`,
+    `➥ .sessionid`,
+    `➥ .platform`,
+    `➥ .prefixinfo`,
+    `➥ .uptime`,
+    `□`,
+    ``,
+    `◈ ❖ OWNER MENU ❖`,
+    `➥ .setbotname`,
+    `➥ .setprefix`,
+    `➥ .setmode`,
+    `➥ .settimezone`,
+    `➥ .restart`,
+    `➥ .shutdown`,
+    `➥ .broadcast`,
+    `➥ .sessionid`,
+    `➥ .pair`,
+    `□`,
+    ``,
+    `◈ ♔ OWNER : KLAUS TECH`,
+    `➥ +254711815459`,
+    `◈ ◇ POWERED BY KLAUS LABS ◇`,
   ].join('\n');
 }
 
@@ -134,18 +284,16 @@ async function sendMenu(sock, jid, message, text, media) {
   await sock.sendMessage(jid, { text }, { quoted: message });
 }
 
-// Track bot start time for uptime
 let _botStartTime = Date.now();
 export function setStartTime(ts) { _botStartTime = ts; }
 
 export default {
   name: 'menu',
-  description: 'Shows the KLAUS MD status dashboard',
+  description: 'Shows the KLAUS MD menu',
   async execute(sock, message, args, prefixStr, extra) {
     const jid = message.key.remoteJid;
-    // Count loaded commands
     const cmdCount = global.commands?.size || 0;
-    const text = buildStatusDashboard(message, cmdCount, _botStartTime);
+    const text = buildMenu(message, cmdCount, _botStartTime);
     const media = await getMenuMedia();
     await sendMenu(sock, jid, message, text, media);
   }
