@@ -16,14 +16,6 @@ if (fs.existsSync(dotenvDir)) {
 }
 
 // ── Fix 2: ensure ffmpeg-static binary is downloaded ────────────────────────
-// ffmpeg-static downloads its pre-compiled binary during `npm install` via its
-// own `install` hook.  That hook can be silently skipped when:
-//   • npm is invoked with --ignore-scripts
-//   • the package-level install script fails / times out
-//   • the host has npm cache but the binary was never fetched
-//
-// We re-run it here so the binary is guaranteed to exist on Heroku, Pterodactyl,
-// Railway, Fly.io, Render, Koyeb, and any other platform that lacks system ffmpeg.
 const ffmpegStaticDir = path.join(root, 'node_modules', 'ffmpeg-static');
 if (fs.existsSync(ffmpegStaticDir)) {
   const binaryPath  = path.join(ffmpegStaticDir, 'ffmpeg');
@@ -39,8 +31,25 @@ if (fs.existsSync(ffmpegStaticDir)) {
       });
       console.log('[patch-modules] ffmpeg-static binary downloaded ✓');
     } catch (e) {
-      // Non-fatal — the bot will fall back to system ffmpeg or `which ffmpeg`
       console.warn('[patch-modules] ffmpeg-static download failed (non-fatal):', e.message);
     }
+  }
+}
+
+// ── Fix 3: ensure bin/yt-dlp is executable ──────────────────────────────────
+// The yt-dlp binary is committed to the repo but may lose its execute
+// permission during git operations or when deployed to cloud platforms
+// (Heroku, Railway, Render, etc.). This ensures it's always executable.
+const ytDlpPath = path.join(root, 'bin', 'yt-dlp');
+if (fs.existsSync(ytDlpPath)) {
+  try {
+    fs.chmodSync(ytDlpPath, 0o755);
+    console.log('[patch-modules] bin/yt-dlp chmod +x ✓');
+  } catch (e) {
+    // On some platforms chmod might fail — try execSync as fallback
+    try {
+      execSync(`chmod +x "${ytDlpPath}"`, { stdio: 'ignore' });
+      console.log('[patch-modules] bin/yt-dlp chmod +x (via exec) ✓');
+    } catch {}
   }
 }

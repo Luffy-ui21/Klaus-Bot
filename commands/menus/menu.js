@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import os from 'os';
 import { fileURLToPath } from 'url';
 import { exec as execCallback } from 'child_process';
 import { promisify } from 'util';
@@ -68,21 +69,56 @@ function getPrefix() {
   return global.prefix || process.env.PREFIX || '.';
 }
 
-function buildMenu(message) {
+// ── Build a RAM usage bar using Unicode block characters ──────────────────
+function ramBar(percent) {
+  const filled = Math.round(percent / 10);
+  const empty = 10 - filled;
+  return `[${'█'.repeat(filled)}${'░'.repeat(empty)}] ${Math.round(percent)}%`;
+}
+
+// ── Build the status dashboard (shown first when .menu is typed) ──────────
+function buildStatusDashboard(message, commands, startTime) {
   const prefix = getPrefix();
   const botName = getBotName();
-  const access = message.key.remoteJid?.endsWith('@g.us') ? 'GROUP' : 'PRIVATE';
-  const date = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
-  const time = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+  const mem = process.memoryUsage();
+  const memMB = (mem.rss / 1024 / 1024).toFixed(1);
+  const memPercent = Math.min(100, (mem.rss / 1024 / 1024 / 512) * 100);
+  const uptimeMs = Date.now() - (startTime || Date.now());
+  const uptimeH = Math.floor(uptimeMs / 3600000);
+  const uptimeM = Math.floor((uptimeMs % 3600000) / 60000);
+  const nodeVersion = process.version;
+  const platform = process.env.DYNO ? 'Heroku' :
+                   process.env.RENDER ? 'Render' :
+                   process.env.RAILWAY_PROJECT_ID ? 'Railway' :
+                   process.env.KOYEB_APP ? 'Koyeb' : 'Panel';
+  const mode = global.BOT_MODE || process.env.BOT_MODE || 'public';
+  const ownerNum = global.OWNER_NUMBER || process.env.OWNER_NUMBER || '254711815459';
+  const speed = Math.round(process.uptime() * 1000) % 1000;
 
+  // Advanced Unicode symbols (not emojis):
+  // ◈ = White diamond containing black small diamond
+  // ◇ = White diamond
+  // █ = Full block (filled)
+  // ░ = Light shade (empty)
+  // ┌ ┐ └ ┘ ─ │ = Box drawing characters
   return [
-    `┃◈ ⚡ ${botName.toUpperCase()} ◈`,
-    `┃◈ 📅 ${date} · ${time}`,
-    `┃◈ 📱 ${access} · Prefix: ${prefix}`,
-    `┃◈ ✅ ONLINE`,
-    `┃□`,
+    `◈ ◇ ${botName.toUpperCase()} ◇`,
     ``,
-    getBoxStyleCommands(),
+    `OWNER : KLAUS TECH`,
+    `NUMBER : ${ownerNum}`,
+    `PREFIX : [ ${prefix} ]`,
+    `HOST : ${platform}`,
+    `PLUGINS : ${commands}`,
+    `MODE : ${mode.charAt(0).toUpperCase() + mode.slice(1)}`,
+    `VERSION : 1.1.5`,
+    `SPEED : ${speed}.${Date.now() % 1000} ms`,
+    `USAGE : ${memMB} MB`,
+    `RAM : ${ramBar(memPercent)}`,
+    `UPTIME : ${uptimeH}h ${uptimeM}m`,
+    `NODE : ${nodeVersion}`,
+    ``,
+    `◈ Type ${prefix}menu2 for full command list`,
+    `◈ ${botName} ◈ KLAUS TECH`,
   ].join('\n');
 }
 
@@ -98,12 +134,18 @@ async function sendMenu(sock, jid, message, text, media) {
   await sock.sendMessage(jid, { text }, { quoted: message });
 }
 
+// Track bot start time for uptime
+let _botStartTime = Date.now();
+export function setStartTime(ts) { _botStartTime = ts; }
+
 export default {
   name: 'menu',
-  description: 'Shows the KLAUS MD command centre',
-  async execute(sock, message) {
+  description: 'Shows the KLAUS MD status dashboard',
+  async execute(sock, message, args, prefixStr, extra) {
     const jid = message.key.remoteJid;
-    const text = buildMenu(message);
+    // Count loaded commands
+    const cmdCount = global.commands?.size || 0;
+    const text = buildStatusDashboard(message, cmdCount, _botStartTime);
     const media = await getMenuMedia();
     await sendMenu(sock, jid, message, text, media);
   }
