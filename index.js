@@ -4768,13 +4768,21 @@ function parseWolfBotSession(sessionString) {
         cleanedSession = cleanedSession.replace(/^["']|["']$/g, '');
         
         // Accept the KLAUS MD: prefix only (legacy prefix removed by user request).
+        // Case-insensitive matching so 'klasu md:', 'KLAUS MD:', 'Klaus Md:' all work.
         const SUPPORTED_PREFIXES = ['KLAUS MD:'];
-        const matchedPrefix = SUPPORTED_PREFIXES.find(p => cleanedSession.startsWith(p));
+        const matchedPrefix = SUPPORTED_PREFIXES.find(p =>
+            cleanedSession.toLowerCase().startsWith(p.toLowerCase())
+        );
         if (matchedPrefix) {
             UltraCleanLogger.info(`🔍 Detected ${matchedPrefix} prefix`);
-            let base64Part = cleanedSession.substring(matchedPrefix.length).trim();
+            // Strip the prefix (using the actual matched length from the input,
+            // not the lowercase version, to handle case differences).
+            const prefixLen = p => cleanedSession.toLowerCase().indexOf(p.toLowerCase()) === 0 ? p.length : 0;
+            const actualPrefixLen = matchedPrefix.length;
+            let base64Part = cleanedSession.substring(actualPrefixLen).trim();
             
-            base64Part = base64Part.replace(/^~+/, '');
+            // Strip leading dots AND tildes (PairSite uses '.', upstream uses '~').
+            base64Part = base64Part.replace(/^[.~]+/, '');
             
             if (!base64Part) {
                 throw new Error(`No data found after ${matchedPrefix}`);
@@ -4810,15 +4818,18 @@ function setupHerokuSession() {
         if (herokuSessionId && herokuSessionId.trim() !== '') {
             UltraCleanLogger.success('🚀 Detected Heroku deployment with SESSION_ID');
             
-            // Parse KLAUS MD session format
+            // Parse KLAUS MD session format (case-insensitive, strips . and ~)
             const SESSION_PREFIXES = ['KLAUS MD:'];
-            const matchedPrefix = SESSION_PREFIXES.find(p => herokuSessionId.startsWith(p));
+            const matchedPrefix = SESSION_PREFIXES.find(p =>
+                herokuSessionId.toLowerCase().startsWith(p.toLowerCase())
+            );
             if (matchedPrefix) {
                 UltraCleanLogger.info(`🔐 Processing ${matchedPrefix} session format...`);
                 
                 try {
-                    // Remove the prefix and decode
-                    const base64Part = herokuSessionId.substring(matchedPrefix.length).trim().replace(/^~+/, '');
+                    // Remove the prefix and decode — strip both '.' and '~' from
+                    // the start of the base64 (PairSite uses '.', upstream uses '~').
+                    const base64Part = herokuSessionId.substring(matchedPrefix.length).trim().replace(/^[.~]+/, '');
                     const decodedSession = Buffer.from(base64Part, 'base64').toString('utf8');
                     const sessionData = JSON.parse(decodedSession);
                     
