@@ -26,7 +26,7 @@ import { getOwnerName, getFooter} from '../../lib/menuHelper.js';
 //       const inviteLink = `https://chat.whatsapp.com/${code}`;
 
 //       await sock.sendMessage(sender, {
-//         text: ` *Silent Wolf Group Invite Link*\n\n🔗 ${inviteLink}`,
+//         text: ` *KLAUS TECH Group Invite Link*\n\n🔗 ${inviteLink}`,
 //       }, { quoted: msg });
 //     } catch (err) {
 //       console.error('Group Link Error:', err);

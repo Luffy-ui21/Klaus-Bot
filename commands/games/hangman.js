@@ -5,7 +5,7 @@ const TYPE = 'hangman';
 const MAX_WRONG = 6;
 
 const WORDS = [
-    'whatsapp','baileys','wolftech','silentwolf','keyboard','elephant','volcano',
+    'whatsapp','baileys','wolftech','klasutech','keyboard','elephant','volcano',
     'pyramid','python','javascript','algorithm','encryption','firewall','gateway',
     'kenya','nairobi','mombasa','safari','cheetah','giraffe','crocodile','rhinoceros',
     'football','basketball','marathon','olympic','melody','rhythm','symphony','guitar',

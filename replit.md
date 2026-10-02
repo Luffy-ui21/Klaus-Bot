@@ -1,6 +1,6 @@
-# Silent WolfBot
+# KLAUS TECHBot
 
-Silent WolfBot is a WhatsApp bot that integrates AI, anime features, group management, and automation to enhance user experience.
+KLAUS TECHBot is a WhatsApp bot that integrates AI, anime features, group management, and automation to enhance user experience.
 
 ## Run & Operate
 

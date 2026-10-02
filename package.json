@@ -1,12 +1,12 @@
 {
-  "name": "silent-wolf-bot",
+  "name": "klasu-tech-bot",
   "version": "2.1.0",
   "description": "Professional WhatsApp bot with autosession authentication.",
   "keywords": [
     "whatsapp",
     "bot",
     "wolfsocket",
-    "silent-wolf",
+    "klasu-tech",
     "auto-restart",
     "prefix",
     "heartbeat",

@@ -6,7 +6,7 @@ const forwardInfo = {
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
             newsletterJid: "120363424199376597@newsletter",
-            newsletterName: "WolfTech",
+            newsletterName: "KLAUS TECH",
             serverMessageId: 2
         }
     }

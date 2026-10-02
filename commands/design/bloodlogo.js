@@ -1040,7 +1040,7 @@ function addBloodSignature(ctx, width, height) {
   ctx.shadowColor = 'rgba(100, 0, 0, 0.6)';
   ctx.shadowBlur = 10;
   
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Small blood drop next to signature
   const dropGradient = ctx.createRadialGradient(

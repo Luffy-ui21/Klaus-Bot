@@ -58,7 +58,7 @@ export default {
 🌕════════════🌕
 
 Rise and shine, mortal. 
-The Silent Wolf sees your
+The KLAUS TECH sees your
 potential.  
 Seize the day… or 
 stay in the shadows.

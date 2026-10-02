@@ -662,7 +662,7 @@ function addRainbowSignature(ctx, width, height) {
   ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
   ctx.shadowBlur = 10;
   
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Small rainbow swatch next to signature
   const swatchWidth = 20;

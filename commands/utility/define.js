@@ -39,14 +39,14 @@ export default {
       const definition = data[0]?.meanings[0]?.definitions[0]?.definition || "No definition found.";
       const example = data[0]?.meanings[0]?.definitions[0]?.example || '';
 
-      const outText = `🌿 *Silent Wolf Dictionary* 🌿\n\n🔎 *Word:* ${word}${partOfSpeech ? ` _(${partOfSpeech})_` : ''}\n📖 *Definition:* ${definition}${example ? `\n📝 *Example:* ${example}` : ''}`;
+      const outText = `🌿 *KLAUS TECH Dictionary* 🌿\n\n🔎 *Word:* ${word}${partOfSpeech ? ` _(${partOfSpeech})_` : ''}\n📖 *Definition:* ${definition}${example ? `\n📝 *Example:* ${example}` : ''}`;
       const copyText = `${word}${partOfSpeech ? ` (${partOfSpeech})` : ''}\n\nDefinition: ${definition}${example ? `\nExample: ${example}` : ''}`;
 
       if (isButtonModeEnabled() && typeof sendInteractiveMessage === 'function') {
         try {
           await sendInteractiveMessage(sock, m.key.remoteJid, {
             text: outText,
-            footer: '📖 Silent Wolf Dictionary',
+            footer: '📖 KLAUS TECH Dictionary',
             interactiveButtons: [
               {
                 name: 'cta_copy',

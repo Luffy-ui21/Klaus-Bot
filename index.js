@@ -7352,7 +7352,7 @@ async function startBot(loginMode = 'auto', loginData = null) {
                                 (global.contactNames?.get?.(_iSenderJid.split('@')[0])) ||
                                 (global.contactNames?.get?.(_iResolved)) ||
                                 (global.contactNames?.get?.(_iSenderJid)) ||
-                                (_iIsOwner ? `Owner (${OWNER || 'KLASU MD'})` : null) ||
+                                (_iIsOwner ? `Owner (${OWNER || 'KLAUS TECH'})` : null) ||
                                 `+${_iResolved}`
                             );
 

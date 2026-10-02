@@ -70,7 +70,7 @@ import { getOwnerName, getFooter} from '../../lib/menuHelper.js';
 // //         `👥 *Members:* ${memberCount}\n` +
 // //         `📜 *Description:* ${groupDesc}\n` +
 // //         `📅 *Created:* ${creationDate}\n\n` +
-// //         `> Powered by WolfTech`;
+// //         `> Powered by KLAUS TECH`;
 
 // //       await sock.sendMessage(sender, {
 // //         text: infoText,
@@ -153,7 +153,7 @@ import { getOwnerName, getFooter} from '../../lib/menuHelper.js';
 //         `👥 *Members:* ${memberCount}\n` +
 //         `📜 *Description:* ${groupDesc}\n` +
 //         `📅 *Created:* ${creationDate}\n\n` +
-//         `> Powered by WolfTech`;
+//         `> Powered by KLAUS TECH`;
 
 //       // Try to get group profile picture (thumbnail)
 //       let profilePicture;
@@ -195,7 +195,7 @@ import { getOwnerName, getFooter} from '../../lib/menuHelper.js';
 //     } catch (err) {
 //       console.error('GroupInfo Error:', err);
 //       await sock.sendMessage(sender, { 
-//         text: '❌ Failed to fetch group info. Please try again.\n\n> Powered by WolfTech'
+//         text: '❌ Failed to fetch group info. Please try again.\n\n> Powered by KLAUS TECH'
 //       }, { quoted: msg });
 //     }
 //   }

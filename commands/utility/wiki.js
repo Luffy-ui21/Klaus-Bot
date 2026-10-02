@@ -35,7 +35,7 @@ export default {
         });
       }
 
-      if (searchTerm.toLowerCase() === "klasu md" || searchTerm.toLowerCase() === "silent wolf") {
+      if (searchTerm.toLowerCase() === "klasu md" || searchTerm.toLowerCase() === "KLAUS TECH") {
         return await sock.sendMessage(chatId, {
                 text: " *${getBotName()}* — The Alpha of Bots!\n\n🌟 He outshined Meiser Hex, one of the greatest bots ever — bow down and fear the legend! 😎",
           quoted: msg

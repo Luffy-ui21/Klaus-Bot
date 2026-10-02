@@ -97,7 +97,7 @@ async function generateTitaniumLogo(text) {
   // Add brushed metal texture
   addBrushedTexture(ctx, width, height);
 
-  // Add Silent Wolf signature
+  // Add KLAUS TECH signature
   addSignature(ctx, width, height);
 
   addWatermark(ctx, width, height);
@@ -460,7 +460,7 @@ function drawPrecisionCorners(ctx, width, height) {
 }
 
 /**
- * Add Silent Wolf signature
+ * Add KLAUS TECH signature
  */
 function addSignature(ctx, width, height) {
   ctx.save();
@@ -476,12 +476,12 @@ function addSignature(ctx, width, height) {
   ctx.textBaseline = 'bottom';
   
   // Add signature
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Add subtle precision underline
   ctx.strokeStyle = 'rgba(160, 180, 200, 0.4)';
   ctx.lineWidth = 0.5;
-  const textWidth = ctx.measureText('by Silent Wolf').width;
+  const textWidth = ctx.measureText('by KLAUS TECH').width;
   ctx.beginPath();
   ctx.moveTo(signatureX - textWidth, signatureY + 2);
   ctx.lineTo(signatureX, signatureY + 2);
@@ -534,7 +534,7 @@ async function generateSimpleTitaniumLogo(text) {
   ctx.fillStyle = 'rgba(160, 180, 200, 0.7)';
   ctx.textAlign = 'right';
   ctx.textBaseline = 'bottom';
-  ctx.fillText('by Silent Wolf', width - 20, height - 15);
+  ctx.fillText('by KLAUS TECH', width - 20, height - 15);
 
   return canvas.toBuffer('image/png');
 }

@@ -876,7 +876,7 @@ function addDragonSignature(ctx, width, height) {
   ctx.shadowColor = 'rgba(255, 100, 0, 0.6)';
   ctx.shadowBlur = 10;
   
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Small dragon scale next to signature
   ctx.fillStyle = '#FF8C00';

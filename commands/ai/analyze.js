@@ -59,7 +59,7 @@ export default {
 ${analysisResult}
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-🧠 *Analyzed by Silent Wolf AI*
+🧠 *Analyzed by KLAUS TECH AI*
 📊 Powered by ${apiKey.includes('sk-') ? 'OpenAI GPT-4 Vision' : 'Google Gemini Pro'}
       `.trim();
       

@@ -55,7 +55,7 @@ export default {
       resultText += `┃ ❌ *Failed:* ${failedCount}\n`;
     }
     resultText += `╰━━━━━━━━━━━━━━━━━━━━━━━━━╯\n`;
-    resultText += `_ Silent Wolf Bot_`;
+    resultText += `_ KLAUS TECH_`;
 
     await sock.sendMessage(jid, { text: resultText }, { quoted: msg });
   },

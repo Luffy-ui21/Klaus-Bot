@@ -1,7 +1,7 @@
 // commands/owner/silent.js
 export default {
   name: "silent",
-  description: "Unleash the ego of the Silent Wolf ",
+  description: "Unleash the ego of the KLAUS TECH ",
   execute: async (sock, msg, args) => {
     const from = msg.key.remoteJid;
     const sender = msg.pushName || "Alpha Wolf";
@@ -12,7 +12,7 @@ export default {
       "🟢🟢🟢░░░░░░ Silent Power...",
       "🟢🟢🟢🟢░░░░ Dominance Loading...",
       "🟢🟢🟢🟢🟢░░ Alpha Power Incoming...",
-      "🟢🟢🟢🟢🟢🟢░ The Silent Wolf Stirs...",
+      "🟢🟢🟢🟢🟢🟢░ The KLAUS TECH Stirs...",
       "🟢🟢🟢🟢🟢🟢🟢 Full Ego Unleashed!"
     ];
 
@@ -35,7 +35,7 @@ export default {
 🟢 No mercy... only dominance.
 🟢 No defeat... only victory.
 
-🌕 *The Silent Wolf does not bark... he strikes.* 🌕
+🌕 *The KLAUS TECH does not bark... he strikes.* 🌕
 ────────────────────────────
     `;
 

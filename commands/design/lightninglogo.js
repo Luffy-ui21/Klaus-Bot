@@ -682,7 +682,7 @@ function addLightningSignature(ctx, width, height) {
   ctx.shadowColor = 'rgba(100, 150, 255, 0.6)';
   ctx.shadowBlur = 15;
   
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Small lightning bolt next to signature
   ctx.strokeStyle = 'rgba(200, 220, 255, 0.8)';

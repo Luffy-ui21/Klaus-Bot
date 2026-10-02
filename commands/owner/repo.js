@@ -119,7 +119,7 @@ export default {
 
         let txt = `╭─⌈ \`WOLF REPO\` ⌋\n`;
         txt += `│\n`;
-        txt += `│ ✧ *Name* : ${data.name || "Silent Wolf "}\n`;
+        txt += `│ ✧ *Name* : ${data.name || "KLAUS TECH "}\n`;
         txt += `│ ✧ *Owner* : ${OWNER}\n`;
         txt += `│ ✧ *Stars* : ${data.stargazers_count || 0} ⭐\n`;
         txt += `│ ✧ *Forks* : ${data.forks_count || 0} 🍴\n`;
@@ -141,7 +141,7 @@ export default {
 
         const fallbackText = `╭─⌈ *WOLF REPO* ⌋\n` +
           `│\n` +
-          `│ ✧ *Name* : Silent Wolf Bot\n` +
+          `│ ✧ *Name* : KLAUS TECH\n` +
           `│ ✧ *Owner* : ${OWNER}\n` +
           `│ ✧ *Repository* : ${REPO_URL}\n` +
           `│ ✧ *Status* : ✅ NEW CLEAN REPOSITORY\n` +
@@ -172,7 +172,7 @@ export default {
         `• *URL* : ${REPO_URL}\n` +
         `• *Status* : Clean and optimized\n` +
         `• *Size* : ~1.5 MB\n\n` +
-        `Hey @${(m.key.participant || m.key.remoteJid).split('@')[0]}! _Thank you for choosing Silent Wolf!_`;
+        `Hey @${(m.key.participant || m.key.remoteJid).split('@')[0]}! _Thank you for choosing KLAUS TECH!_`;
       await sendRepoCard(sock, m.key.remoteJid, simpleText, imagePayload,
         m.key.participant || m.key.remoteJid, m);
     }

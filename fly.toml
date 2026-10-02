@@ -1,4 +1,4 @@
-# fly.toml — Silent WolfBot · Fly.io deployment
+# fly.toml — KLAUS TECHBot · Fly.io deployment
 # Docs: https://fly.io/docs/reference/configuration/
 #
 # ─── DEPLOY STEPS (first time only) ────────────────────────────────────────────
@@ -17,7 +17,7 @@
 #  Every future deploy is just: fly deploy
 # ────────────────────────────────────────────────────────────────────────────────
 
-app            = 'silent-wolf-bot'
+app            = 'klasu-tech-bot'
 primary_region = 'lad'
 kill_signal    = 'SIGINT'
 kill_timeout   = '30s'

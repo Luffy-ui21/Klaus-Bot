@@ -229,7 +229,7 @@
 // // 🌒 _“In the silence of the night, wolves speak loudest.”_
 // // ⚔️ Type to unleash the beast.
 
-// // *Powered by Silent Wolf Intelligence 🐾*
+// // *Powered by KLAUS TECH Intelligence 🐾*
 
 // // `;
 // // };

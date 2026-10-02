@@ -850,7 +850,7 @@ function addDarkSignature(ctx, width, height) {
   ctx.shadowColor = 'rgba(100, 0, 50, 0.6)';
   ctx.shadowBlur = 10;
   
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Small occult symbol next to signature
   ctx.fillStyle = 'rgba(150, 0, 100, 0.8)';

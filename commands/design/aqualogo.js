@@ -757,7 +757,7 @@ function addAquaSignature(ctx, width, height) {
   ctx.shadowColor = 'rgba(0, 150, 255, 0.5)';
   ctx.shadowBlur = 15;
   
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Small water droplet next to signature
   const dropGradient = ctx.createRadialGradient(

@@ -816,7 +816,7 @@ function addCrystalSignature(ctx, width, height) {
   ctx.shadowColor = 'rgba(100, 150, 255, 0.6)';
   ctx.shadowBlur = 10;
   
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Small crystal next to signature
   ctx.fillStyle = '#64C8FF';

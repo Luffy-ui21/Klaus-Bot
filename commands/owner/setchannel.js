@@ -30,7 +30,7 @@ export default {
                     `├─⊷ *Usage:* ${PREFIX}setchannel (JID) (Name)\n` +
                     `│\n` +
                     `├─⊷ *Example:*\n` +
-                    `│  └⊷ ${PREFIX}setchannel 120363425472822304@newsletter WolfTech\n` +
+                    `│  └⊷ ${PREFIX}setchannel 120363425472822304@newsletter KLAUS TECH\n` +
                     `│\n` +
                     `╰⊷ ${getFooter(msg.key.participant || msg.key.remoteJid)}`
             }, { quoted: msg });

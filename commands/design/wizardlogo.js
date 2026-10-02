@@ -802,7 +802,7 @@ function addWizardSignature(ctx, width, height) {
   ctx.shadowColor = 'rgba(100, 200, 255, 0.6)';
   ctx.shadowBlur = 10;
   
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Small magic rune next to signature
   ctx.fillStyle = 'rgba(100, 200, 255, 0.8)';

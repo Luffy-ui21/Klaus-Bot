@@ -95,7 +95,7 @@ async function generateGlowLogo(text) {
   // Add holographic border
   drawHolographicBorder(ctx, width, height);
 
-  // Add Silent Wolf signature
+  // Add KLAUS TECH signature
   addSignature(ctx, width, height);
 
   addWatermark(ctx, width, height);
@@ -443,7 +443,7 @@ function addCornerGlowAccents(ctx, width, height) {
 }
 
 /**
- * Add Silent Wolf signature
+ * Add KLAUS TECH signature
  */
 function addSignature(ctx, width, height) {
   ctx.save();
@@ -463,11 +463,11 @@ function addSignature(ctx, width, height) {
   ctx.shadowBlur = 8;
   
   // Add signature
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Add subtle rainbow underline
   const underlineGradient = ctx.createLinearGradient(
-    signatureX - ctx.measureText('by Silent Wolf').width,
+    signatureX - ctx.measureText('by KLAUS TECH').width,
     signatureY + 2,
     signatureX,
     signatureY + 2
@@ -479,7 +479,7 @@ function addSignature(ctx, width, height) {
   ctx.strokeStyle = underlineGradient;
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.moveTo(signatureX - ctx.measureText('by Silent Wolf').width, signatureY + 2);
+  ctx.moveTo(signatureX - ctx.measureText('by KLAUS TECH').width, signatureY + 2);
   ctx.lineTo(signatureX, signatureY + 2);
   ctx.stroke();
   

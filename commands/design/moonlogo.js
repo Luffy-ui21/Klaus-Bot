@@ -629,13 +629,13 @@ function addMoonSignature(ctx, width, height) {
   ctx.shadowColor = 'rgba(150, 150, 255, 0.5)';
   ctx.shadowBlur = 10;
   
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Moon phase indicator line
   ctx.strokeStyle = 'rgba(180, 180, 220, 0.6)';
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.moveTo(signatureX - ctx.measureText('by Silent Wolf').width, signatureY + 2);
+  ctx.moveTo(signatureX - ctx.measureText('by KLAUS TECH').width, signatureY + 2);
   ctx.lineTo(signatureX, signatureY + 2);
   ctx.stroke();
   

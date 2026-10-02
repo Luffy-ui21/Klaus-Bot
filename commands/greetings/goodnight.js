@@ -57,7 +57,7 @@ export default {
  GOOD NIGHT, ${captionMention} 
 🌑════════════🌑
 
-Rest your bones, mortal. The Silent Wolf watches as the world exhales.
+Rest your bones, mortal. The KLAUS TECH watches as the world exhales.
 Dream well — or dream wisely, for I am the velvet shadow that lingers at the edge of sleep.
 Under my moonlit gaze, even your bravest thoughts shiver. Let your soul remember me tonight.
 Sleep... while you can.
@@ -91,7 +91,7 @@ _"The hunt sleeps, but the watcher never truly rests."_
       console.error("❌ Good night command error:", err);
       await sock.sendMessage(
         m.key.remoteJid,
-        { text: "⚠️ The Silent Wolf refuses to rest properly... something went wrong." },
+        { text: "⚠️ The KLAUS TECH refuses to rest properly... something went wrong." },
         { quoted: m }
       );
     }

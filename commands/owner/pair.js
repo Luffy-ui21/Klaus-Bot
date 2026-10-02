@@ -204,7 +204,7 @@
 //                     const { sendInteractiveMessage } = require('wolfbtns');
 //                     await sendInteractiveMessage(sock, chatId, {
 //                         text: msgText,
-//                         footer: ' Silent Wolf Bot',
+//                         footer: ' KLAUS TECH',
 //                         interactiveButtons: [{
 //                             name: 'cta_copy',
 //                             buttonParamsJson: JSON.stringify({
@@ -453,7 +453,7 @@ export default {
                     const { sendInteractiveMessage } = require('wolfbtns');
                     await sendInteractiveMessage(sock, chatId, {
                         text: msgText,
-                        footer: ' Silent Wolf Bot',
+                        footer: ' KLAUS TECH',
                         interactiveButtons: [{
                             name: 'cta_copy',
                             buttonParamsJson: JSON.stringify({

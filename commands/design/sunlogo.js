@@ -748,7 +748,7 @@ function addSunSignature(ctx, width, height) {
   ctx.shadowColor = 'rgba(255, 200, 50, 0.6)';
   ctx.shadowBlur = 15;
   
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Small sun symbol next to signature
   ctx.fillStyle = '#FFD700';

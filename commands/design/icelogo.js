@@ -92,7 +92,7 @@ async function generateIceLogo(text) {
   // Add frozen border
   drawFrozenBorder(ctx, width, height);
 
-  // Add Silent Wolf signature
+  // Add KLAUS TECH signature
   addSignature(ctx, width, height);
 
   addWatermark(ctx, width, height);
@@ -302,7 +302,7 @@ function drawIceCrystal(ctx, x, y, size) {
 }
 
 /**
- * Add Silent Wolf signature
+ * Add KLAUS TECH signature
  */
 function addSignature(ctx, width, height) {
   ctx.save();
@@ -318,12 +318,12 @@ function addSignature(ctx, width, height) {
   ctx.textBaseline = 'bottom';
   
   // Add signature
-  ctx.fillText('by Silent Wolf', signatureX, signatureY);
+  ctx.fillText('by KLAUS TECH', signatureX, signatureY);
   
   // Add subtle icy underline
   ctx.strokeStyle = 'rgba(160, 200, 255, 0.4)';
   ctx.lineWidth = 0.5;
-  const textWidth = ctx.measureText('by Silent Wolf').width;
+  const textWidth = ctx.measureText('by KLAUS TECH').width;
   ctx.beginPath();
   ctx.moveTo(signatureX - textWidth, signatureY + 2);
   ctx.lineTo(signatureX, signatureY + 2);

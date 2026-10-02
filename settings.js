@@ -10,17 +10,17 @@
 //     // Repository URLs - UPDATED
 //     repository: {
 //       // Your main repository (your current bot)
-//       main: "https://github.com/7silent-wolf/silentwolf",
+//       main: "https://github.com/7klasu-tech/klasutech",
       
 //       // Remote repository (where updates come from)
-//       upstream: "https://github.com/7w07f/w7",
+//       upstream: "https://github.com/Luffy-ui21/w7",
       
 //       // Backup owner repository (if needed)
-//       owner: "https://github.com/7silent-wolf/silentwolf"
+//       owner: "https://github.com/7klasu-tech/klasutech"
 //     },
     
 //     // ZIP update URL (fallback method)
-//     zipUrl: "https://github.com/7w07f/w7/archive/refs/heads/main.zip",
+//     zipUrl: "https://github.com/Luffy-ui21/w7/archive/refs/heads/main.zip",
     
 //     // Timeout settings (in milliseconds)
 //     timeouts: {
@@ -44,7 +44,7 @@
 //   // ... rest of your configuration
 // }
 
-// //I am Silent Wolf yeap that is my name
+// //I am KLAUS TECH yeap that is my name
 // //git add --all :!node_modules :!package-lock.json :!*.log :!*.db
 
 
@@ -108,5 +108,5 @@ export default {
   // ... rest of your configuration
 }
 
-//I am Silent Wolf yeap that is my name
+//I am KLAUS TECH yeap that is my name
 //git add --all :!node_modules :!package-lock.json :!*.log :!*.db

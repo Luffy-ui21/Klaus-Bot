@@ -42,7 +42,7 @@ export default {
         try {
           await sendInteractiveMessage(sock, jid, {
             text: `✅ *URL Shortened!*\n\n🔗 *Short:* ${shortUrl}\n🌐 *Original:* ${longUrl.substring(0, 60)}${longUrl.length > 60 ? '...' : ''}`,
-            footer: ' Silent Wolf',
+            footer: ' KLAUS TECH',
             interactiveButtons: [
               {
                 name: 'cta_copy',

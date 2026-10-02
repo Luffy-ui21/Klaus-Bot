@@ -164,7 +164,7 @@ export default {
 
       // Get GitHub info for thumbnail
       let githubAvatar = "https://raw.githubusercontent.com/777Wolf-dot/Silent-Wolf/main/.github/images/logo.png";
-      let githubName = "Silent Wolf Bot";
+      let githubName = "KLAUS TECH";
       let githubUrl = "https://github.com/777Wolf-dot";
       
       try {

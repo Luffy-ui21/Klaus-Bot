@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 export default {
   name: "about",
-  description: "Displays the Silent Wolf Bot origin and ego-filled info",
+  description: "Displays the KLAUS TECH origin and ego-filled info",
 
   async execute(sock, m, args) {
     try {
@@ -43,7 +43,7 @@ But I execute in the dark."_ 🌑
 
 *Author:* 777Wolf-dot  
 🔥 *Legacy:* Born in code. Forged in chaos.
-🌕 *Era:* WolfTech Dominion
+🌕 *Era:* KLAUS TECH Dominion
 `;
 
       //  Send Image + Caption or fallback to text

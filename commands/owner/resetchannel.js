@@ -1,7 +1,7 @@
 import { setChannelInfo } from '../../lib/channelMode.js';
 
 const DEFAULT_JID = '120363424199376597@newsletter';
-const DEFAULT_NAME = 'WOLF TECH';
+const DEFAULT_NAME = 'KLAUS TECH';
 
 export default {
     name: 'resetchannel',

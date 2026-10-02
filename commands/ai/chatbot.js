@@ -18,7 +18,7 @@
 //   mode           — off | on | groups | dms | both
 //   preferredModel — which AI model to try first
 //   chatbotName    — the chatbot's display name (default: "W.O.L.F")
-//   techName       — the company/creator name shown in AI identity (default: "WOLF TECH")
+//   techName       — the company/creator name shown in AI identity (default: "KLAUS TECH")
 //   allowedGroups  — whitelist of group JIDs (if set, only these groups)
 //   allowedDMs     — whitelist of DM numbers (if set, only these contacts)
 //   stats          — running counters for total queries and media actions
@@ -476,7 +476,7 @@ function clearConversation(userId) {
 // Build the AI prompt with system instructions + profile context + conversation history.
 // The system instructions tell the AI to identify as `botName` (not GPT/Claude)
 // and to keep replies short and conversational.
-function buildContextPrompt(conversation, newQuery, botName = 'W.O.L.F', userProfile = null, techName = 'WOLF TECH') {
+function buildContextPrompt(conversation, newQuery, botName = 'W.O.L.F', userProfile = null, techName = 'KLAUS TECH') {
   const n = botName;
   const t = techName;
   const profileCtx = userProfile ? buildProfileContext(userProfile) : '';
@@ -584,7 +584,7 @@ async function generateImage(prompt) {
 // Try every model in MODEL_PRIORITY order using the full context prompt.
 // If all fail, fall back to sending just the bare user query to GPT.
 // Returns { response, model } or null.
-async function getAIResponse(query, conversation, preferredModel = 'gpt', botName = 'W.O.L.F', userProfile = null, techName = 'WOLF TECH') {
+async function getAIResponse(query, conversation, preferredModel = 'gpt', botName = 'W.O.L.F', userProfile = null, techName = 'KLAUS TECH') {
   const contextPrompt = buildContextPrompt(conversation, query, botName, userProfile, techName);
 
   // Preferred model first (pass raw query so wormgpt gets a direct question)
@@ -611,7 +611,7 @@ async function getAIResponse(query, conversation, preferredModel = 'gpt', botNam
 
 // Strip AI brand names, role prefixes, citation markers, and repeated blank
 // lines from the AI's response, and replace all brand names with `botName`.
-function cleanAIResponse(text, botName = 'W.O.L.F', techName = 'WOLF TECH') {
+function cleanAIResponse(text, botName = 'W.O.L.F', techName = 'KLAUS TECH') {
   if (!text) return '';
   const n        = botName;
   const nEscaped = n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -876,7 +876,7 @@ export async function handleChatbotMessage(sock, msg, commandsMap) {
   if (hasImage) {
     const config   = loadConfig();
     const botName  = config.chatbotName || 'W.O.L.F';
-    const techName = config.techName || 'WOLF TECH';
+    const techName = config.techName || 'KLAUS TECH';
     const caption  = textMsg.trim() || 'What is in this image? Describe it in detail.';
     const botId    = getBotId();
 
@@ -971,7 +971,7 @@ export async function handleChatbotMessage(sock, msg, commandsMap) {
   // ── Load shared state (needed by image gen + intent + AI blocks) ──────
   const config       = loadConfig();
   const botName      = config.chatbotName || 'W.O.L.F';
-  const techName     = config.techName || 'WOLF TECH';
+  const techName     = config.techName || 'KLAUS TECH';
   const conversation = loadConversation(senderJid);
   const botId        = getBotId();
   let   profile      = loadProfile(botId, senderJid);
@@ -1203,7 +1203,7 @@ export default {
         : '';
 
       const chatbotName = config.chatbotName || 'W.O.L.F';
-      const chatbotTech = config.techName || 'WOLF TECH';
+      const chatbotTech = config.techName || 'KLAUS TECH';
       const helpText =
         `╭─⌈  *${chatbotName} CHATBOT* ⌋\n` +
         `│ ${modeEmoji[config.mode] || '🔴'} Status: ${config.mode.toUpperCase()}\n` +
@@ -1340,7 +1340,7 @@ export default {
       }
 
       const cbName = config.chatbotName || 'W.O.L.F';
-      const cbTech = config.techName || 'WOLF TECH';
+      const cbTech = config.techName || 'KLAUS TECH';
       const settingsText =
         ` *${cbName} Settings*\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
         `🏷️ *Name:* ${cbName}\n` +
@@ -1579,7 +1579,7 @@ export default {
     if (subCommand === 'techname') {
       const newTech = args.slice(1).join(' ').trim();
       if (!newTech) {
-        const current = config.techName || 'WOLF TECH';
+        const current = config.techName || 'KLAUS TECH';
         return sock.sendMessage(jid, {
           text: `Tech name: *${current}*\nChange: \`${PREFIX}chatbot techname <new name>\``
         }, { quoted: m });
