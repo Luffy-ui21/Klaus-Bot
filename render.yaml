@@ -1,34 +1,57 @@
-# Render Blueprint for your custom WhatsApp bot
-# Docs: https://render.com/docs/blueprint-spec
-# After pushing this repo to GitHub/GitLab, go to:
-#   New → Blueprint → connect repo → Render reads this file.
+# ════════════════════════════════════════════════════════════════════════
+#  KLAUS MD BOT — Render Blueprint
+#  Docs: https://render.com/docs/blueprint-spec
+#
+#  HOW TO DEPLOY:
+#  1. Push this repo to GitHub
+#  2. Go to https://render.com → New → Blueprint
+#  3. Connect your GitHub repo (Luffy-ui21/Klaus-Bot)
+#  4. Render reads this file automatically
+#  5. Set SESSION_ID in the Environment tab (from klausmd.pairsite.space)
+#  6. Deploy!
+# ════════════════════════════════════════════════════════════════════════
 
 services:
   - type: web
-    name: klasu-md
+    name: klasu-md-bot
     runtime: docker
-    plan: free            # change to 'starter' for always-on
-    region: frankfurt     # pick the region closest to your WhatsApp users
+    plan: starter              # 'free' sleeps after 15min · 'starter' is always-on ($7/mo)
+    region: oregon             # oregon | frankfurt | singapore | ohio — pick closest to your users
     dockerfilePath: ./Dockerfile
     dockerContext: .
     healthCheckPath: /health
-    autoDeploy: true
+    autoDeploy: true           # auto-deploy on every git push to main
     envVars:
-      - key: SESSION_ID
-        sync: false       # set this in the Render dashboard after first QR scan
+      # ── Required ──
+      - key: SESSION_ID        # get this from klausmd.pairsite.space
+        sync: false
       - key: BOT_NAME
-        value: KLASU MD
+        value: KLAUS MD
       - key: OWNER_NUMBER
-        value: 254711815459
+        value: "254711815459"
+      - key: XWOLF_API_KEY
+        value: wxa_u_xwk7sch6xj
+
+      # ── Bot behaviour ──
       - key: BOT_PREFIX
-        value: .
+        value: "."
       - key: BOT_MODE
         value: public
       - key: BOT_TIMEZONE
         value: Africa/Nairobi
-      - key: DATABASE_URL
-        sync: false       # optional — only if you wire up Postgres
-      - key: XWOLF_API_KEY
-        value: wxa_u_xwk7sch6xj
+
+      # ── Node.js ──
       - key: NODE_ENV
         value: production
+      - key: NODE_OPTIONS
+        value: "--max-old-space-size=512 --experimental-global-webcrypto"
+
+      # ── Optional integrations ──
+      - key: DATABASE_URL       # add a Render Postgres for cross-deploy persistence
+        sync: false
+      - key: PTERODACTYL_KEY
+        sync: false
+      - key: PTERODACTYL_URL
+        sync: false
+      - key: PAYSTACK_KEY
+        sync: false
