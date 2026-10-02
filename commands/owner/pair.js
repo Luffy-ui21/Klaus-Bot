@@ -173,7 +173,7 @@
 //             const formattedCode = pairCode ? pairCode.match(/.{1,4}/g)?.join('-') || pairCode : '';
 
 //             const timestamp = new Date().toLocaleTimeString();
-//             let msgText = `┌─  *SILENT WOLF PAIRING* ─┐\n│\n`;
+//             let msgText = `┌─  *KLAUS MD PAIRING* ─┐\n│\n`;
 
 //             msgText += `│ 📱 *Number:* ${number}\n`;
 
@@ -422,7 +422,7 @@ export default {
             const formattedCode = pairCode ? pairCode.match(/.{1,4}/g)?.join('-') || pairCode : '';
 
             const timestamp = new Date().toLocaleTimeString();
-            let msgText = `┌─  *SILENT WOLF PAIRING* ─┐\n│\n`;
+            let msgText = `┌─  *KLAUS MD PAIRING* ─┐\n│\n`;
 
             msgText += `│ 📱 *Number:* ${number}\n`;
 

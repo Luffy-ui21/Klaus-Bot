@@ -166,7 +166,7 @@ function getAutoDownloadStatusState() {
 function getAutoreplyState() {
     const data = db.getConfigSync?.('autoreply_config', null);
     if (!data || !data.enabled) return 'OFF';
-    const msg = data.message || 'Hello, WOLFBOT is online';
+    const msg = data.message || 'Hello, KLASU MD is online';
     const preview = msg.length > 35 ? msg.substring(0, 35) + '…' : msg;
     return `ON — "${preview}"`;
 }

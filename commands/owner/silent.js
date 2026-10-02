@@ -23,7 +23,7 @@ export default {
     }
 
     const egoMessage = `
-🌌🌑 *SILENT WOLF RISES* 🌑🌌
+🌌🌑 *KLAUS MD RISES* 🌑🌌
 ────────────────────────────
 🔥 Name: *${sender}*
 ⚡ Title: *The Silent Alpha*

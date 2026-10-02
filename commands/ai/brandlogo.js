@@ -33,7 +33,7 @@ export default {
         {
           headers: {
             "Authorization": `Bearer ${apiKey}`,
-            "User-Agent": "WolfBot/1.0"
+            "User-Agent": "KLAUS MD/1.0"
           }
         }
       );

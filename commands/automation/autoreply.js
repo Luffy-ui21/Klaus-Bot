@@ -2,7 +2,7 @@ import db from '../../lib/database.js';
 import { getOwnerName } from '../../lib/menuHelper.js';
 
 const CONFIG_DB_KEY = 'autoreply_config';
-const DEFAULT_MESSAGE = 'Hello, WOLFBOT is online';
+const DEFAULT_MESSAGE = 'Hello, KLASU MD is online';
 const COOLDOWN_MS = 60_000;
 
 const DEFAULT_SETTINGS = {

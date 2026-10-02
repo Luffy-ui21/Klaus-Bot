@@ -643,7 +643,7 @@ function initConfig() {
 
 initConfig();
 
-// ── Signature WOLFBOT log style: ╭─⌈ icon TAG ⌋ … ╰⊷ ──────────────────────
+// ── Signature KLAUS MD log style: ╭─⌈ icon TAG ⌋ … ╰⊷ ──────────────────────
 // Tones: 'green' (default/success), 'yellow' (warn/wait), 'red' (error).
 function _crLog(icon, tag, message, fields, tone = 'green') {
     const NB = tone === 'red'

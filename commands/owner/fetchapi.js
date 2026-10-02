@@ -12,7 +12,7 @@ export default {
     async execute(sock, msg, args, PREFIX, extra) {
         const chatJid = msg.key.remoteJid;
         const reply = (text) => sock.sendMessage(chatJid, { text }, { quoted: msg });
-        const BOT_NAME = extra?.BOT_NAME || getBotName() || 'WOLFBOT';
+        const BOT_NAME = extra?.BOT_NAME || getBotName() || 'KLAUS MD';
         const cmdName  = (args[0] || '').toLowerCase().trim();
         const customQuery = args.slice(1).join(' ').trim();
 
@@ -73,7 +73,7 @@ export default {
                 const res = await fetch(testUrl, {
                     method: 'GET',
                     signal: controller.signal,
-                    headers: { 'User-Agent': 'WolfBot/1.0', Accept: 'application/json' }
+                    headers: { 'User-Agent': 'KLAUS MD/1.0', Accept: 'application/json' }
                 });
                 status      = res.status;
                 contentType = res.headers.get('content-type') || '';

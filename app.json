@@ -3,7 +3,7 @@
   "description": "KLASU MD — custom WhatsApp Bot with AI chat (ChatGPT/Gemini/Claude) and auto-session authentication",
   "logo": "https://i.ibb.co/zWGkw7Jz/767022de0778.png",
   "keywords": ["whatsapp", "bot", "custom", "baileys", "session", "ai"],
-  "repository": "https://github.com/WOLVAREX/v1.1.5-WOLFBOT-.git",
+  "repository": "https://github.com/WOLVAREX/v1.1.5-KLAUS MD-.git",
   "scripts": {
     "start": "node --no-warnings --experimental-global-webcrypto index.js"
   },

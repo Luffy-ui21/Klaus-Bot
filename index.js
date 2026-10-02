@@ -1246,7 +1246,7 @@ globalThis.preExitSave = async function preExitSave() {
                 const _vars = JSON.stringify({
                     BOT_PREFIX: isPrefixless ? '' : (prefixCache || DEFAULT_PREFIX),
                     BOT_MODE:   BOT_MODE   || 'public',
-                    BOT_NAME:   (global.BOT_NAME || BOT_NAME || 'WOLFBOT')
+                    BOT_NAME:   (global.BOT_NAME || BOT_NAME || 'KLAUS MD')
                 });
                 await new Promise((resolve) => {
                     const _req = _https.request({
@@ -1293,7 +1293,7 @@ const STICKER_DELAY = 400;
 // const SEND_WELCOME_MESSAGE = true;
 // const GROUP_LINK = 'https://chat.whatsapp.com/G3RopQF1UcSD7AeoVsd6PG';
 // const GROUP_INVITE_CODE = GROUP_LINK.split('/').pop();
-// const GROUP_NAME = 'WolfBot Community';
+// const GROUP_NAME = 'KLAUS MD Community';
 // const AUTO_JOIN_LOG_FILE = './auto_join_log.json';
 
 // ====== SILENCE BAILEYS ======
@@ -1626,9 +1626,9 @@ function _printMessageBox(opts) {
     // Title — bot name in upper-case (no rainbow).
     const titleName = (typeof getCurrentBotName === 'function'
         ? getCurrentBotName()
-        : (global.BOT_NAME || 'WOLFBOT'));
+        : (global.BOT_NAME || 'KLAUS MD'));
 
-    // Title bar:  ╭─⌈  WOLFBOT ⌋
+    // Title bar:  ╭─⌈  KLAUS MD ⌋
     const icon  = isGroup   ? '👥'
                 : isChannel ? '📢'
                 : isOwner   ? '👑'
@@ -3409,8 +3409,8 @@ globalThis._memberDetector = memberDetector;
         
 //         try {
 //             await sock.sendMessage(userJid, {
-//                 text: `🎉 *WELCOME TO WOLFBOT!*\n\n` +
-//                       `Thank you for connecting with WolfBot! 🤖\n\n` +
+//                 text: `🎉 *WELCOME TO KLAUS MD!*\n\n` +
+//                       `Thank you for connecting with KLAUS MD! 🤖\n\n` +
 //                       `✨ *Features Available:*\n` +
 //                       `• Multiple command categories\n` +
 //                       `• Group management tools\n` +
@@ -4761,7 +4761,7 @@ async function printKlasuSessionId() {
 }
 
 // ====== SESSION ID PARSER ======
-function parseWolfBotSession(sessionString) {
+function parseKlausMdSession(sessionString) {
     try {
         let cleanedSession = sessionString.trim();
         
@@ -4967,7 +4967,7 @@ async function authenticateWithSessionId(sessionId) {
     try {
         UltraCleanLogger.info('🔄 Processing Session ID...');
         
-        const sessionData = parseWolfBotSession(sessionId);
+        const sessionData = parseKlausMdSession(sessionId);
         
         if (!sessionData) {
             throw new Error('Could not parse session data');
@@ -5272,7 +5272,7 @@ function printConnectionBox(botName) {
         return `${col}│${R}${inner}${col}│${R}`;
     };
 
-    const name = botName || 'WolfBot';
+    const name = botName || 'KLAUS MD';
     const lines = [
         `${c()}╭${bar}╮${R}`,
         row(` ${name} — CONNECTED`, true),
@@ -5728,7 +5728,7 @@ const _dbInitPromise = initDatabase().then(() => {
 //   3. Call makeWASocket() with custom options:
 //        - logger: ultraSilentLogger (no Baileys noise in the terminal)
 //        - auth: the SQLite auth state
-//        - browser: ['WolfBot', 'Safari', '1.0.0']
+//        - browser: ['KLAUS MD', 'Safari', '1.0.0']
 //        - msgRetryCounterCache: shared NodeCache
 //   4. Override sock.sendMessage() to apply the current font style automatically
 //      (see Section 20 below) and capture outgoing messages for MessageStore
@@ -8900,7 +8900,7 @@ async function handleIncomingMessage(sock, msg) {
                                 const _ownerDmJid = _ownerInfo?.ownerJid
                                     || `${senderJid.split('@')[0].split(':')[0]}@s.whatsapp.net`;
 
-                                const _caption = `*Retrieved by ${global.BOT_NAME || 'WOLFBOT'}* `;
+                                const _caption = `*Retrieved by ${global.BOT_NAME || 'KLAUS MD'}* `;
                                 const _mime    = _mediaMsg.mimetype
                                     || (_mediaType === 'video' ? 'video/mp4' : _mediaType === 'audio' ? 'audio/mpeg' : 'image/jpeg');
 
@@ -9003,7 +9003,7 @@ async function handleIncomingMessage(sock, msg) {
                 const _ownerDmJid = _ownerInfo?.ownerJid
                     || `${senderJid.split('@')[0].split(':')[0]}@s.whatsapp.net`;
 
-                const _caption = `*Retrieved by ${global.BOT_NAME || 'WOLFBOT'}* `;
+                const _caption = `*Retrieved by ${global.BOT_NAME || 'KLAUS MD'}* `;
                 const _mime    = _mediaMsg.mimetype
                     || (_mediaType === 'video' ? 'video/mp4' : _mediaType === 'audio' ? 'audio/mpeg' : 'image/jpeg');
 
@@ -9636,7 +9636,7 @@ async function handleDefaultCommands(commandName, sock, msg, args, currentPrefix
 //             UltraCleanLogger.info('🔐 Found SESSION_ID in .env, attempting auto-login...');
             
 //             try {
-//                 const sessionData = parseWolfBotSession(sessionIdFromEnv);
+//                 const sessionData = parseKlausMdSession(sessionIdFromEnv);
 //                 if (sessionData) {
 //                     UltraCleanLogger.success('✅ Valid session ID found in .env, auto-connecting...');
 //                     await startBot('session', sessionIdFromEnv);
@@ -9813,7 +9813,7 @@ async function main() {
 
             UltraCleanLogger.info('🔐 Applying SESSION_ID to creds.json...');
             try {
-                const parsedSession = parseWolfBotSession(sessionIdFromEnv);
+                const parsedSession = parseKlausMdSession(sessionIdFromEnv);
                 if (parsedSession) {
                     ensureSessionDir();
                     fs.writeFileSync(credsPath, JSON.stringify(parsedSession, null, 2));

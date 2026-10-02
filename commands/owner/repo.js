@@ -109,7 +109,7 @@ export default {
           `https://api.github.com/repos/${OWNER}/${REPO}`,
           {
             timeout: 10000,
-            headers: { "User-Agent": "WolfBot", "Accept": "application/vnd.github.v3+json" }
+            headers: { "User-Agent": "KLAUS MD", "Accept": "application/vnd.github.v3+json" }
           }
         );
 
@@ -117,7 +117,7 @@ export default {
         const sizeKB = data.size;
         sizeText = sizeKB > 1024 ? `${(sizeKB / 1024).toFixed(2)} MB` : `${sizeKB} KB`;
 
-        let txt = `╭─⌈ \`WOLF REPO\` ⌋\n`;
+        let txt = `╭─⌈ \`KLAUS MD REPO\` ⌋\n`;
         txt += `│\n`;
         txt += `│ ✧ *Name* : ${data.name || "KLAUS TECH "}\n`;
         txt += `│ ✧ *Owner* : ${OWNER}\n`;
@@ -139,7 +139,7 @@ export default {
       } catch (apiError) {
         console.error("GitHub API Error:", apiError);
 
-        const fallbackText = `╭─⌈ *WOLF REPO* ⌋\n` +
+        const fallbackText = `╭─⌈ *KLAUS MD REPO* ⌋\n` +
           `│\n` +
           `│ ✧ *Name* : KLAUS TECH\n` +
           `│ ✧ *Owner* : ${OWNER}\n` +
@@ -167,7 +167,7 @@ export default {
       console.error("General Error:", err);
       const img = getRepoImage();
       const imagePayload = img.type === 'buffer' ? { image: img.data } : { image: { url: img.data } };
-      const simpleText = `*WOLF REPO*\n\n` +
+      const simpleText = `*KLAUS MD REPO*\n\n` +
         `• *New Repository* : ✅ YES\n` +
         `• *URL* : ${REPO_URL}\n` +
         `• *Status* : Clean and optimized\n` +

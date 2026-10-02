@@ -26,7 +26,7 @@ export default {
       //  Caption with ego and style
       const caption = `
 ╔═════════════════╗
-        🌕 *SILENT WOLF BOT* 🌕
+        🌕 *KLAUS MD BOT* 🌕
 ╚═════════════════╝
 
 👁 *IDENTITY:* The apex code. The predator of silence.
@@ -36,12 +36,12 @@ export default {
 🛡 *Purpose:* Dominate every command chain
 
 ⭐ *GitHub:* 
-https://github.com/777Wolf-dot/Silent-Wolf--Bot.git
+https://github.com/Luffy-ui21/Silent-Wolf--Bot.git
 
 _"You may code in daylight...  
 But I execute in the dark."_ 🌑
 
-*Author:* 777Wolf-dot  
+*Author:* Luffy-ui21  
 🔥 *Legacy:* Born in code. Forged in chaos.
 🌕 *Era:* KLAUS TECH Dominion
 `;
@@ -71,7 +71,7 @@ But I execute in the dark."_ 🌑
       console.error("❌ About command error:", err);
       await sock.sendMessage(
         m.key.remoteJid,
-        { text: "⚠️ Wolf encountered a glitch while revealing its power..." },
+        { text: "⚠️ KLAUS MD encountered a glitch while revealing its power..." },
         { quoted: m }
       );
     }

@@ -313,7 +313,7 @@
 //         // Send video
 //         await sock.sendMessage(jid, {
 //           video: fs.readFileSync(tempFile),
-//           caption: `🎬 *${videoTitle}*\n📹 ${quality}p • ${fileSizeMB}MB\n > WolfBot`,
+//           caption: `🎬 *${videoTitle}*\n📹 ${quality}p • ${fileSizeMB}MB\n > KLAUS MD`,
 //           fileName: `${videoTitle.substring(0, 50)}.mp4`.replace(/[^\w\s.-]/gi, ''),
 //           mimetype: 'video/mp4',
 //           contextInfo: {

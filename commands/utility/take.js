@@ -53,7 +53,7 @@
 //       const emoji = args.length > 0 ? args[0] : '🤖';
       
 //       // Send processing message
-//       // await sendMessage(`📦 *Processing Sticker*\n\n✨ Pack: *WolfBot*\n👤 By: ${pushname}\n🎭 Emoji: ${emoji}\n⏳ Please wait...`);
+//       // await sendMessage(`📦 *Processing Sticker*\n\n✨ Pack: *KLAUS MD*\n👤 By: ${pushname}\n🎭 Emoji: ${emoji}\n⏳ Please wait...`);
       
 //       try {
 //         // Get the message key for download
@@ -86,10 +86,10 @@
 //         const img = new webp.Image();
 //         await img.load(stickerBuffer);
         
-//         // Create metadata - Always use WolfBot as pack name
+//         // Create metadata - Always use KLAUS MD as pack name
 //         const json = {
 //           'sticker-pack-id': crypto.randomBytes(32).toString('hex'),
-//           'sticker-pack-name': 'WolfBot', // Always use WolfBot
+//           'sticker-pack-name': 'KLAUS MD', // Always use KLAUS MD
 //           'sticker-pack-publisher': pushname, // Keep user as publisher
 //           'emojis': [emoji] // Use provided emoji or default
 //         };
@@ -114,7 +114,7 @@
 //         });
         
 //         // Send success message
-//         // await sendMessage(`✅ *Sticker Taken Successfully!*\n\n📦 Pack: WolfBot\n👤 By: ${pushname}\n🎭 Emoji: ${emoji}\n\n💡 The sticker now shows under "WolfBot" pack`);
+//         // await sendMessage(`✅ *Sticker Taken Successfully!*\n\n📦 Pack: KLAUS MD\n👤 By: ${pushname}\n🎭 Emoji: ${emoji}\n\n💡 The sticker now shows under "KLAUS MD" pack`);
         
 //       } catch (error) {
 //         console.error('Sticker processing error:', error);
@@ -216,7 +216,7 @@ export default {
       const emoji = args.length > 0 ? args[0] : '🤖';
       
       // Send processing message (optional)
-      // await sendMessage(`📦 *Processing Sticker*\n\n✨ Pack: *WolfBot*\n👤 By: ${pushname}\n🎭 Emoji: ${emoji}\n⏳ Please wait...`);
+      // await sendMessage(`📦 *Processing Sticker*\n\n✨ Pack: *KLAUS MD*\n👤 By: ${pushname}\n🎭 Emoji: ${emoji}\n⏳ Please wait...`);
       
       try {
         // Build the download target — prefer m.quoted (has full CDN URL/key fields).
@@ -252,7 +252,7 @@ export default {
         const img = new webp.Image();
         await img.load(stickerBuffer);
         
-        // Create metadata - Always use WolfBot as pack name
+        // Create metadata - Always use KLAUS MD as pack name
         const json = {
           'sticker-pack-id': crypto.randomBytes(32).toString('hex'),
           'sticker-pack-name': getBotName(),
@@ -276,7 +276,7 @@ export default {
         });
         
         // Send success message (optional)
-        // await sendMessage(`✅ *Sticker Taken Successfully!*\n\n📦 Pack: WolfBot\n👤 By: ${pushname}\n🎭 Emoji: ${emoji}\n\n💡 The sticker now shows under "WolfBot" pack`);
+        // await sendMessage(`✅ *Sticker Taken Successfully!*\n\n📦 Pack: KLAUS MD\n👤 By: ${pushname}\n🎭 Emoji: ${emoji}\n\n💡 The sticker now shows under "KLAUS MD" pack`);
         
         // Log the action — resolve LID to real phone number if needed
         const senderJid = m.key.participant || chatId;

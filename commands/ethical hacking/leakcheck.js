@@ -32,7 +32,7 @@ export default {
 
         const response = await axios.get(`https://api.pwnedpasswords.com/range/${prefix}`, {
           timeout: 10000,
-          headers: { 'User-Agent': 'WOLFBOT-BreachCheck' }
+          headers: { 'User-Agent': 'KLAUS MD-BreachCheck' }
         });
 
         const lines = response.data.split('\n');
@@ -60,7 +60,7 @@ export default {
         try {
           const response = await axios.get(`https://api.xposedornot.com/v1/check-email/${encodeURIComponent(input)}`, {
             timeout: 15000,
-            headers: { 'User-Agent': 'WOLFBOT-BreachCheck' }
+            headers: { 'User-Agent': 'KLAUS MD-BreachCheck' }
           });
 
           if (response.data && response.data.breaches) {
@@ -81,7 +81,7 @@ export default {
               const hibpRes = await axios.get(`https://haveibeenpwned.com/api/v3/breachedaccount/${encodeURIComponent(input)}?truncateResponse=false`, {
                 timeout: 10000,
                 headers: {
-                  'User-Agent': 'WOLFBOT-BreachCheck',
+                  'User-Agent': 'KLAUS MD-BreachCheck',
                   'hibp-api-key': process.env.HIBP_API_KEY || ''
                 }
               });

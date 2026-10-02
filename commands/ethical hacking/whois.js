@@ -66,7 +66,7 @@ async function whoisLookup(domain) {
         try {
             const { data } = await axios.get(api.url, {
                 timeout: 12000,
-                headers: { 'Accept': 'application/json', 'User-Agent': 'WolfBot/1.0' }
+                headers: { 'Accept': 'application/json', 'User-Agent': 'KLAUS MD/1.0' }
             });
             if (!data || data.error || data.errorCode) continue;
             const parsed = api.parse(data);

@@ -17,7 +17,7 @@ export default {
       const res = await axios.get(REPO_ZIP, {
         responseType: 'arraybuffer',
         timeout: 60000,
-        headers: { 'User-Agent': 'WolfBot' },
+        headers: { 'User-Agent': 'KLAUS MD' },
         maxRedirects: 5
       });
 

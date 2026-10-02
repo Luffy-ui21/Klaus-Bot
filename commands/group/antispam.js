@@ -102,7 +102,7 @@ const antispamCommand = {
         const config = getConfig();
         const gc = config[chatJid] || {};
         const prefix = PREFIX || extra?.prefix || '.';
-        const BOT_NAME = extra?.BOT_NAME || 'WOLFBOT';
+        const BOT_NAME = extra?.BOT_NAME || 'KLAUS MD';
         const subCmd = (args[0] || '').toLowerCase();
         const subArg = (args[1] || '').toLowerCase();
 

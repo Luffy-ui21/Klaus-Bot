@@ -183,7 +183,7 @@
 //         responseType: 'arraybuffer',
 //         timeout: 45000, // 45 seconds for processing
 //         headers: {
-//           'User-Agent': 'WolfBot-Remini/1.0',
+//           'User-Agent': 'KLAUS MD-Remini/1.0',
 //           'Accept': 'image/*',
 //           'Referer': 'https://www.remini.ai/'
 //         }
@@ -292,7 +292,7 @@
 //   const response = await axios.post('https://catbox.moe/user/api.php', form, {
 //     headers: {
 //       ...form.getHeaders(),
-//       'User-Agent': 'WolfBot/1.0'
+//       'User-Agent': 'KLAUS MD/1.0'
 //     },
 //     timeout: 30000,
 //     maxContentLength: 50 * 1024 * 1024, // 50MB
@@ -570,7 +570,7 @@ export default {
         responseType: 'arraybuffer',
         timeout: 45000, // 45 seconds for processing
         headers: {
-          'User-Agent': 'WolfBot-Remini/1.0',
+          'User-Agent': 'KLAUS MD-Remini/1.0',
           'Accept': 'image/*',
           'Referer': 'https://www.remini.ai/'
         }
@@ -682,7 +682,7 @@ async function uploadToCatbox(buffer) {
   const response = await axios.post('https://catbox.moe/user/api.php', form, {
     headers: {
       ...form.getHeaders(),
-      'User-Agent': 'WolfBot/1.0'
+      'User-Agent': 'KLAUS MD/1.0'
     },
     timeout: 30000,
     maxContentLength: 50 * 1024 * 1024, // 50MB

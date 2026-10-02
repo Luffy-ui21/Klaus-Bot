@@ -198,7 +198,7 @@ async function getJoke(category = 'general') {
       },
       timeout: 15000,
       headers: {
-        'User-Agent': 'WolfBot-Jokes/1.0',
+        'User-Agent': 'KLAUS MD-Jokes/1.0',
         'Accept': 'application/json'
       }
     });

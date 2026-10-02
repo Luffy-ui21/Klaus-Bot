@@ -310,7 +310,7 @@ async function callOpenRouterWithFile(query, fileData, apiKey, model = "deepseek
         "Content-Type": "application/json",
         "Authorization": `Bearer ${apiKey}`,
         "HTTP-Referer": "https://wolfbot.com",
-        "X-Title": "WolfBot File Analysis"
+        "X-Title": "KLAUS MD File Analysis"
       },
       body: JSON.stringify({
         model: model,

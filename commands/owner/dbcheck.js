@@ -152,7 +152,7 @@ export default {
 
         // WhatsApp monospace block
         await sock.sendMessage(chatId, {
-            text: `*🗄️ WOLFBOT — DB Check*\n\`\`\`\n${short}\n\`\`\``
+            text: `*🗄️ KLAUS MD — DB Check*\n\`\`\`\n${short}\n\`\`\``
         }, { quoted: msg });
 
         // Second message: full configs (may be long)

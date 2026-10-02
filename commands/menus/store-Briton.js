@@ -567,7 +567,7 @@
       
 //     } catch (error) {}
     
-//     return 'WOLFBOT';
+//     return 'KLAUS MD';
 //   };
   
 //   const getOwnerName = () => {

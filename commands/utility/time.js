@@ -24,7 +24,7 @@ export default {
       const formatted = now.format("dddd, MMMM Do YYYY\n⏰ HH:mm:ss A");
 
       let reply = `
-🌙 *SILENT WOLF TIME HOWL* 🌙
+🌙 *KLAUS TECH TIME HOWL* 🌙
 ━━━━━━━━━━━━━━━━━━
 📍 Location: *${match}*
 📅 Date: ${formatted.split("\n")[0]}

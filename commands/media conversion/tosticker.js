@@ -76,7 +76,7 @@ export default {
       const authorName = m.pushName || 'User'; // Use sender's name as author
       
     //   await sock.sendMessage(jid, { 
-    //     text: `⏳ *Creating WolfBot sticker...*\n\n📦 *Pack:* ${packName}\n👤 *By:* ${authorName}\n🎭 *Emoji:* ${emoji}` 
+    //     text: `⏳ *Creating KLAUS MD sticker...*\n\n📦 *Pack:* ${packName}\n👤 *By:* ${authorName}\n🎭 *Emoji:* ${emoji}` 
     //   }, { quoted: m });
 
       console.log(`🎨 [TOSTICKER] Downloading image...`);
@@ -143,8 +143,8 @@ export default {
         
         console.log(`✅ [TOSTICKER] WebP created: ${(webpBuffer.length / 1024).toFixed(1)}KB`);
         
-        // Add WolfBot metadata to sticker
-        console.log(`🎨 [TOSTICKER] Adding WolfBot metadata...`);
+        // Add KLAUS MD metadata to sticker
+        console.log(`🎨 [TOSTICKER] Adding KLAUS MD metadata...`);
         const finalSticker = await addStickerMetadata(webpBuffer, {
           packName: packName,
           authorName: authorName,
@@ -159,11 +159,11 @@ export default {
           sticker: finalSticker
         }, { quoted: m });
         
-        console.log(`✅ [TOSTICKER] WolfBot sticker sent successfully`);
+        console.log(`✅ [TOSTICKER] KLAUS MD sticker sent successfully`);
         
         // Send confirmation message
         // await sock.sendMessage(jid, { 
-        //   text: `✅ *WolfBot Sticker Created!*\n\n📦 *Pack:* ${packName}\n👤 *By:* ${authorName}\n🎭 *Emoji:* ${emoji}\n📊 *Size:* ${finalSizeKB}KB\n\n💡 *To save:*\n1. Long press sticker\n2. Tap "Add to sticker pack"\n3. It will appear under "WolfBot" pack`
+        //   text: `✅ *KLAUS MD Sticker Created!*\n\n📦 *Pack:* ${packName}\n👤 *By:* ${authorName}\n🎭 *Emoji:* ${emoji}\n📊 *Size:* ${finalSizeKB}KB\n\n💡 *To save:*\n1. Long press sticker\n2. Tap "Add to sticker pack"\n3. It will appear under "KLAUS MD" pack`
         // }, { quoted: m });
         
       } catch (sharpError) {
@@ -220,7 +220,7 @@ export default {
   }
 };
 
-// Function to add sticker metadata (WolfBot pack name)
+// Function to add sticker metadata (KLAUS MD pack name)
 async function addStickerMetadata(webpBuffer, metadata) {
   try {
     const { packName, authorName, emoji } = metadata;

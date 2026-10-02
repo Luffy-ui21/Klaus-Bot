@@ -31,7 +31,7 @@ export default {
       const response = await axios.get(apiUrl, {
         timeout: 60000,
         headers: {
-          'User-Agent': 'WolfBot/1.0',
+          'User-Agent': 'KLAUS MD/1.0',
           'Accept': 'application/json'
         }
       });

@@ -1,4 +1,4 @@
-# Contributing to WOLFBOT
+# Contributing to KLAUS MD
 
 Contributions, bug reports, documentation improvements, and focused feature
 pull requests are welcome.

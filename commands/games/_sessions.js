@@ -1,4 +1,4 @@
-// Shared per-chat game session store for WOLFBOT.
+// Shared per-chat game session store for KLAUS MD.
 // Sessions are keyed by chatId + game type. Persisted to disk so games survive restarts.
 // Debounced save coalesces rapid moves (typical in Wordle/Hangman).
 

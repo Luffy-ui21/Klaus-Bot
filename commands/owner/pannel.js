@@ -163,9 +163,9 @@ export default {
 `.trim();
 
       // Get GitHub info for thumbnail
-      let githubAvatar = "https://raw.githubusercontent.com/777Wolf-dot/Silent-Wolf/main/.github/images/logo.png";
+      let githubAvatar = "https://raw.githubusercontent.com/Luffy-ui21/Silent-Wolf/main/.github/images/logo.png";
       let githubName = "KLAUS TECH";
-      let githubUrl = "https://github.com/777Wolf-dot";
+      let githubUrl = "https://github.com/Luffy-ui21";
       
       try {
         // Use cached approach to avoid API limits

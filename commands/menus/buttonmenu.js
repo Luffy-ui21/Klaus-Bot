@@ -37,7 +37,7 @@ export default {
             }
             
             const buttonStatus = isButtonModeEnabled ? (isButtonModeEnabled() ? '🟢 ACTIVE' : '🔴 INACTIVE') : '⚪ UNKNOWN';
-            const botName = getBotName ? getBotName() : 'WOLFBOT';
+            const botName = getBotName ? getBotName() : 'KLAUS MD';
             await sock.sendMessage(chatId, { text: `buttonmenu loading...` }, { quoted: m });
             await new Promise(resolve => setTimeout(resolve, 800));
 

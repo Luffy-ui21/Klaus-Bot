@@ -52,7 +52,7 @@ async function downloadInstagram(url) {
   const res = await axios.get('https://api.bk9.dev/download/instagram', {
     params: { url },
     timeout: 30000,
-    headers: { 'User-Agent': 'WolfBot/1.0' }
+    headers: { 'User-Agent': 'KLAUS MD/1.0' }
   });
 
   const d = res.data;

@@ -1,6 +1,6 @@
 # KLASU MD — WhatsApp Bot Setup Guide
 
-This is **KLASU MD** — a customized version of **WOLFBOT v1.1.5** (by WOLVAREX), pre-configured for your preferences. Follow this guide step-by-step to get your bot online.
+This is **KLASU MD** — a customized version of **KLAUS MD v1.1.5** (by WOLVAREX), pre-configured for your preferences. Follow this guide step-by-step to get your bot online.
 
 ---
 
@@ -84,7 +84,7 @@ On first boot you'll see a **pairing menu** printed in the terminal. Choose Opti
 The bot uses **Wolf Socket** (Baileys fork). When you start the bot with `SESSION_ID=` empty, it prints:
 
 ```
-╭─⌈  WOLFBOT CONTROL CORE ⌋
+╭─⌈  KLAUS MD CONTROL CORE ⌋
 » 🏗️ Linux · 🔌 3000 · 📂 /logs
 ╰⊷
 
@@ -183,7 +183,7 @@ Full command list: `.menu` → `.aimenu` for the AI section.
 - WhatsApp logged you out. Clear `SESSION_ID`, restart, scan a fresh QR.
 
 **Bot connected but `.chatgpt` returns an error**
-- The `XWOLF_API_KEY` (Wolf API) may have hit its rate limit. Default key is bundled; for production usage get your own from the WOLFBOT community.
+- The `XWOLF_API_KEY` (Wolf API) may have hit its rate limit. Default key is bundled; for production usage get your own from the KLAUS MD community.
 
 **`Cannot find module 'wolfsocket'` / install errors**
 - Run `npm install` again. The package is loaded from GitHub (`github:WOLVAREX/wolfsocket#91f843a`).

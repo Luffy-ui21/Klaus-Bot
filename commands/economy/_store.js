@@ -1,4 +1,4 @@
-// Shared economy store for WOLFBOT.
+// Shared economy store for KLAUS MD.
 // Persists user balances, jobs, streaks and cooldowns to ./data/economy/users.json.
 // Per-user record lives under a single key (clean phone number, no suffix) so the
 // same wallet works across DM and groups. Group-scoped data (e.g. leaderboards)

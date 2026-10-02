@@ -124,9 +124,9 @@ export default {
         },
         timeout: 30000, // 30 seconds for Google AI
         headers: {
-          'User-Agent': 'WolfBot-Bard/1.0 (Google-AI-Assistant)',
+          'User-Agent': 'KLAUS MD-Bard/1.0 (Google-AI-Assistant)',
           'Accept': 'application/json',
-          'X-Requested-With': 'WolfBot',
+          'X-Requested-With': 'KLAUS MD',
           'Referer': 'https://apiskeith.vercel.app/',
           'Origin': 'https://apiskeith.vercel.app',
           'Cache-Control': 'no-cache'

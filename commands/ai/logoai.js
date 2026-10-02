@@ -43,7 +43,7 @@ export default {
         headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${apiKey}`,
-          "User-Agent": "WolfBot/1.0"
+          "User-Agent": "KLAUS MD/1.0"
         },
         body: JSON.stringify({
           company_name: companyName,

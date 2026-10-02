@@ -23,7 +23,7 @@ export default {
       const response = await axios.head(url, {
         timeout: 15000,
         maxRedirects: 5,
-        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; WOLFBOT/1.0)' },
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; KLAUS MD/1.0)' },
         validateStatus: () => true
       });
 

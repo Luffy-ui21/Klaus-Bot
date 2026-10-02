@@ -24,7 +24,7 @@ export default {
         return;
       }
 
-      let newsList = `\n🌙 *SILENT WOLF NEWS* 🌙\n`;
+      let newsList = `\n🌙 *KLAUS TECH NEWS* 🌙\n`;
       newsList += `━━━━━━━━━━━━━━━━━━\n`;
       newsList += `🔎 Topic: *${query.toUpperCase()}*\n\n`;
 

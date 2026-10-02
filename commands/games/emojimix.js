@@ -96,7 +96,7 @@
 //         timeout: 15000,
 //         responseType: 'arraybuffer',
 //         headers: {
-//           'User-Agent': 'WolfBot/1.0',
+//           'User-Agent': 'KLAUS MD/1.0',
 //           'Accept': 'image/*'
 //         }
 //       });
@@ -284,7 +284,7 @@ export default {
         timeout: 20000,
         responseType: 'arraybuffer',
         headers: {
-          'User-Agent': 'WolfBot-EmojiMix/1.0',
+          'User-Agent': 'KLAUS MD-EmojiMix/1.0',
           'Accept': 'image/*'
         }
       });
@@ -294,10 +294,10 @@ export default {
       const imageBuffer = Buffer.from(response.data);
       
       if (makeSticker) {
-        // ====== CONVERT TO STICKER WITH WOLFBOT METADATA ======
+        // ====== CONVERT TO STICKER WITH KLAUS MD METADATA ======
         try {
           if (!sharp) throw new Error('sharp module not available on this platform');
-          console.log(`🎨 Converting to WolfBot sticker...`);
+          console.log(`🎨 Converting to KLAUS MD sticker...`);
           
           // Process image with sharp (similar to tosticker command)
           let processedImage = sharp(imageBuffer);
@@ -331,8 +331,8 @@ export default {
           
           console.log(`✅ WebP created: ${(webpBuffer.length / 1024).toFixed(1)}KB`);
           
-          // Add WolfBot metadata to sticker
-          console.log(`🎨 Adding WolfBot metadata...`);
+          // Add KLAUS MD metadata to sticker
+          console.log(`🎨 Adding KLAUS MD metadata...`);
           
           // Create combined emoji for sticker pack
           const combinedEmoji = getCombinedEmoji(emoji1, emoji2);
@@ -355,7 +355,7 @@ export default {
           await sock.sendMessage(jid, { react: { text: '✅', key: m.key } });
           
           // Success message (commented out)
-        //   const successText = `✅ *WolfBot Sticker Created!*\n\n` +
+        //   const successText = `✅ *KLAUS MD Sticker Created!*\n\n` +
         //                      `🎭 *Emojis:* ${emoji1} + ${emoji2}\n` +
         //                      `🔤 *Combined:* ${combinedEmoji}\n` +
         //                      `📦 *Pack:* ${packName}\n` +
@@ -364,7 +364,7 @@ export default {
         //                      `💡 *To save:*\n` +
         //                      `1. Long press sticker\n` +
         //                      `2. Tap "Add to sticker pack"\n` +
-        //                      `3. It will appear under "WolfBot Emojis"`;
+        //                      `3. It will appear under "KLAUS MD Emojis"`;
           
         //   await sock.sendMessage(jid, {
         //     text: successText
@@ -412,7 +412,7 @@ export default {
 
 // ====== HELPER FUNCTIONS ======
 
-// Function to add sticker metadata (WolfBot pack name)
+// Function to add sticker metadata (KLAUS MD pack name)
 async function addStickerMetadata(webpBuffer, metadata) {
   try {
     const { packName, authorName, emoji } = metadata;

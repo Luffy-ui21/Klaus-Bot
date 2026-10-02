@@ -19,7 +19,7 @@ export default {
     async execute(sock, msg, args, PREFIX, extra) {
         const chatJid = msg.key.remoteJid;
         const reply = (text) => sock.sendMessage(chatJid, { text }, { quoted: msg });
-        const BOT_NAME = extra?.BOT_NAME || getBotName() || 'WOLFBOT';
+        const BOT_NAME = extra?.BOT_NAME || getBotName() || 'KLAUS MD';
         const cmdName  = (args[0] || '').toLowerCase().trim();
 
         // Last arg might be a style keyword

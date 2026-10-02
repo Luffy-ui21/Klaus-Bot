@@ -120,7 +120,7 @@ export default {
       });
 
       text += `┌───────────────────\n`;
-      text += `│  WOLFBOT DOWNLOAD TIPS\n`;
+      text += `│  KLAUS MD DOWNLOAD TIPS\n`;
       text += `├───────────────────\n`;
       text += `│ • *${p}ytplay <url>* → Audio\n`;
       text += `│ • *${p}ytv <url>* → Video\n`;

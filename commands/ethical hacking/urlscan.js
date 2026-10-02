@@ -19,7 +19,7 @@ export default {
 
       const response = await axios.get(`https://urlscan.io/api/v1/search/?q=domain:${encodeURIComponent(domain)}&size=5`, {
         timeout: 15000,
-        headers: { 'User-Agent': 'WOLFBOT/1.0' }
+        headers: { 'User-Agent': 'KLAUS MD/1.0' }
       });
 
       const data = response.data;

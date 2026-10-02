@@ -101,7 +101,7 @@ export default {
         },
         timeout: 30000, // 30 seconds
         headers: {
-          'User-Agent': 'WolfBot-Summarizer/1.0',
+          'User-Agent': 'KLAUS MD-Summarizer/1.0',
           'Accept': 'application/json'
         },
         validateStatus: function (status) {

@@ -34,7 +34,7 @@
       
 //     } catch (error) {}
     
-//     return 'WOLFBOT';
+//     return 'KLAUS MD';
 //   };
   
 //   // Get the current bot name

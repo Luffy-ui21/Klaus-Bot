@@ -83,9 +83,9 @@ export default {
         },
         timeout: 30000, // 30 seconds
         headers: {
-          'User-Agent': 'WolfBot-MetaAI/1.0',
+          'User-Agent': 'KLAUS MD-MetaAI/1.0',
           'Accept': 'application/json',
-          'X-Requested-With': 'WolfBot',
+          'X-Requested-With': 'KLAUS MD',
           'Referer': 'https://apiskeith.vercel.app/'
         },
         validateStatus: function (status) {

@@ -1072,7 +1072,7 @@
 //   // Footer
 //   report += `\n` + `━`.repeat(30) + `\n`;
 //   report += `✍️ Humanized at: ${new Date().toLocaleTimeString()}\n`;
-//   report += `⚡ WolfBot Humanizer v2.0`;
+//   report += `⚡ KLAUS MD Humanizer v2.0`;
   
 //   return report;
 // }
@@ -1111,7 +1111,7 @@
 //   report += `💡 *Tip:* Use for emails, social posts, or any content that needs a human touch!\n`;
   
 //   report += `\n` + `━`.repeat(30) + `\n`;
-//   report += `⚡ WolfBot Humanizer`;
+//   report += `⚡ KLAUS MD Humanizer`;
   
 //   return report;
 // }

@@ -25,7 +25,7 @@ export default {
 
       const headRes = await axios.head(url, {
         timeout: 10000,
-        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; WOLFBOT/1.0)' },
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; KLAUS MD/1.0)' },
         validateStatus: () => true
       }).catch(() => null);
 
@@ -40,7 +40,7 @@ export default {
         timeout: 30000,
         responseType: 'arraybuffer',
         maxContentLength: maxSize,
-        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; WOLFBOT/1.0)' }
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; KLAUS MD/1.0)' }
       });
 
       const buffer = Buffer.from(response.data);

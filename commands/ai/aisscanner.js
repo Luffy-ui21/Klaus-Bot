@@ -21,7 +21,7 @@
     
 // //     // ====== HELP SECTION ======
 // //     if (args.length === 0 || args[0].toLowerCase() === 'help') {
-// //       const helpText = `🔍 *WOLFBOT AI SCANNER*\n\n` +
+// //       const helpText = `🔍 *KLAUS MD AI SCANNER*\n\n` +
 // //         `🤖 *AI-powered content analysis for safety and moderation*\n\n` +
 // //         `📌 *Usage:*\n` +
 // //         `• \`${PREFIX}aiscanner your text here\` - Scan text\n` +
@@ -273,7 +273,7 @@
 // //       },
 // //       timeout: 30000,
 // //       headers: {
-// //         'User-Agent': 'WolfBot-AIScanner/1.0'
+// //         'User-Agent': 'KLAUS MD-AIScanner/1.0'
 // //       }
 // //     });
     
@@ -335,7 +335,7 @@
 // //       },
 // //       timeout: 40000,
 // //       headers: {
-// //         'User-Agent': 'WolfBot-MediaScanner/1.0'
+// //         'User-Agent': 'KLAUS MD-MediaScanner/1.0'
 // //       }
 // //     });
     
@@ -424,7 +424,7 @@
 // //   const emoji = mediaType === 'image' ? '🖼️' : 
 // //                 mediaType === 'video' ? '🎥' : '📝';
   
-// //   let resultText = `${emoji} *WOLFBOT AI SCANNER*\n\n`;
+// //   let resultText = `${emoji} *KLAUS MD AI SCANNER*\n\n`;
   
 // //   // Content preview
 // //   if (mediaType) {
@@ -511,7 +511,7 @@
 // //   }
   
 // //   resultText += `\n\n🔍 *Scan completed at:* ${new Date().toLocaleTimeString()}`;
-// //   resultText += `\n⚡ *Powered by WOLFBOT AI*`;
+// //   resultText += `\n⚡ *Powered by KLAUS MD AI*`;
   
 // //   return resultText;
 // // }

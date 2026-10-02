@@ -1,12 +1,12 @@
 import { getBotName, saveBotName, clearBotNameCache } from '../../lib/botname.js';
 
-const DEFAULT_NAME = 'WOLFBOT';
+const DEFAULT_NAME = 'KLAUS MD';
 
 export default {
     name: 'resetbotname',
     alias: ['defaultname','dn','rbn', 'clearbotname', 'resettobotname', 'restorebotname', 'resetname', 'defaultbotname', 'clearname', 'removebotname', 'deletename', 'resetbot', 'botreset', 'name-reset', 'botname-reset'],
     category: 'owner',
-    description: 'Reset bot name to default (WOLFBOT)',
+    description: 'Reset bot name to default (KLAUS MD)',
     ownerOnly: true,
     
     async execute(sock, msg, args, PREFIX, extra) {

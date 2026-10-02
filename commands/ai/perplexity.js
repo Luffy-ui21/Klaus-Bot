@@ -43,7 +43,7 @@ export default {
           const res = await axios.get(endpoint, {
             timeout: 25000,
             headers: {
-              'User-Agent': 'WolfBot/1.0'
+              'User-Agent': 'KLAUS MD/1.0'
             }
           });
           
@@ -80,7 +80,7 @@ export default {
           response = `I received your question: "${query}". \n\nUnfortunately, the Perplexity API is currently experiencing issues. Please try:\n1. Rephrasing your question\n2. Using \`${PREFIX}ilama\` for general AI questions\n3. Trying again in a few minutes\n\nAlternatively, you can search the web directly for "${query}".`;
         }
         
-        apiUsed = "WolfBot Fallback";
+        apiUsed = "KLAUS MD Fallback";
       }
 
       // Format response
@@ -88,7 +88,7 @@ export default {
       messageText += `💭 *Your Query:*\n${query}\n\n`;
       messageText += `💡 *Response:*\n${response}\n\n`;
       
-      if (apiUsed !== "WolfBot Fallback") {
+      if (apiUsed !== "KLAUS MD Fallback") {
         messageText += `🔧 *Source:* ${apiUsed}\n`;
       }
       messageText += `✨ *Note:* Responses may include web search information`;

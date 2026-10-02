@@ -30,7 +30,7 @@ async function fetchAllRepos(token) {
     const headers = {
         'Authorization': `token ${token}`,
         'Accept': 'application/vnd.github+json',
-        'User-Agent': 'WolfBot-RepoLister',
+        'User-Agent': 'KLAUS MD-RepoLister',
         'X-GitHub-Api-Version': '2022-11-28'
     };
 

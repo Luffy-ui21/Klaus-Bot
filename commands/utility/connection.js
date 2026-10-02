@@ -9,7 +9,7 @@
     
 //     // Send initial syncing message
 //     const loadingMessage = await sock.sendMessage(m.key.remoteJid, {
-//       text: ` *WolfBot* is checking connection... █▒▒▒▒▒▒▒▒▒`
+//       text: ` *KLAUS MD* is checking connection... █▒▒▒▒▒▒▒▒▒`
 //     }, { quoted: m });
 
 //     const latency = Date.now() - start;

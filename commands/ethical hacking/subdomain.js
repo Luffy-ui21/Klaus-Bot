@@ -33,7 +33,7 @@ async function fetchCrtShSubdomains(domain) {
     try {
         const { data } = await axios.get(`https://crt.sh/?q=%.${encodeURIComponent(domain)}&output=json`, {
             timeout: 15000,
-            headers: { 'User-Agent': 'WolfBot/1.0' }
+            headers: { 'User-Agent': 'KLAUS MD/1.0' }
         });
         if (!Array.isArray(data)) return [];
         const subs = new Set();
