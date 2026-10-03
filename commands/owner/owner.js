@@ -17,7 +17,7 @@ function getOwnerContact() {
             if (d.number) return d.number;
         }
     } catch {}
-    return '254713046497';
+    return null; // Not Set — user sets via .owner <number>
 }
 
 function saveOwnerContact(number) {
@@ -35,6 +35,7 @@ export default {
         const { jidManager } = extra || {};
         const isOwner = jidManager?.isOwner(m) || false;
 
+        // If user provides a number, save it as the owner
         if (args[0]) {
             if (!isOwner) {
                 return sock.sendMessage(jid, {
@@ -56,6 +57,15 @@ export default {
         }
 
         const ownerNumber = getOwnerContact();
+
+        // No owner set — show "Not Set"
+        if (!ownerNumber) {
+            try { await sock.sendMessage(jid, { react: { text: '👑', key: m.key } }); } catch {}
+            return sock.sendMessage(jid, {
+                text: `👑 *${getBotName()} OWNER*\n\n❌ *Not Set*\n\nUse \`${PREFIX}owner <number>\` to set owner\nExample: \`${PREFIX}owner 254711815459\``
+            }, { quoted: m });
+        }
+
         const ownerJid = `${ownerNumber}@s.whatsapp.net`;
 
         try { await sock.sendMessage(jid, { react: { text: '👑', key: m.key } }); } catch {}
