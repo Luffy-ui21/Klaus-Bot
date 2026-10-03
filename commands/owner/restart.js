@@ -87,31 +87,40 @@ export default {
       }
 
       if (!skipGit) {
-        await editStatus('🌐 *Checking for updates...*');
-        try {
-          const oldRev = await run('git rev-parse HEAD').catch(() => 'unknown');
-          await run(`git fetch ${_R} --depth=5 --prune`, 30000);
-          const currentBranch = await run('git rev-parse --abbrev-ref HEAD').catch(() => 'main');
-          let newRev;
+        // On Heroku/Render/Railway there's no git repo — the code comes from
+        // the build system. Just restart the dyno (which will have the latest
+        // code from GitHub auto-deploy). On local/Pterodactyl, do git pull.
+        const isCloudNoGit = !!(process.env.DYNO || process.env.RENDER || process.env.RAILWAY_PROJECT_ID);
+
+        if (isCloudNoGit) {
+          await editStatus('☁️ *Cloud deployment detected*\nCode updates via GitHub auto-deploy.\nRestarting to load latest...');
+        } else {
+          await editStatus('🌐 *Checking for updates...*');
           try {
-            newRev = await run(`git rev-parse ${_R}/${currentBranch}`);
-          } catch {
-            newRev = await run(`git rev-parse ${_R}/main`);
-          }
-          if (oldRev === newRev) {
-            await editStatus(`✅ *Already up to date*\nCommit: ${newRev?.slice(0, 7) || 'N/A'}`);
-          } else {
-            // Try fast-forward first; fall back to regular merge if histories diverged
+            const oldRev = await run('git rev-parse HEAD').catch(() => 'unknown');
+            await run(`git fetch ${_R} --depth=5 --prune`, 30000);
+            const currentBranch = await run('git rev-parse --abbrev-ref HEAD').catch(() => 'main');
+            let newRev;
             try {
-              await run(`git merge --ff-only ${newRev}`);
+              newRev = await run(`git rev-parse ${_R}/${currentBranch}`);
             } catch {
-              await run(`git merge --no-edit --allow-unrelated-histories ${newRev}`);
+              newRev = await run(`git rev-parse ${_R}/main`);
             }
-            const updatedRev = await run('git rev-parse HEAD').catch(() => newRev);
-            await editStatus(`✅ *Updated to latest!*\nCommit: ${updatedRev?.slice(0, 7) || 'N/A'}`);
+            if (oldRev === newRev) {
+              await editStatus(`✅ *Already up to date*\nCommit: ${newRev?.slice(0, 7) || 'N/A'}`);
+            } else {
+              // Try fast-forward first; fall back to regular merge if histories diverged
+              try {
+                await run(`git merge --ff-only ${newRev}`);
+              } catch {
+                await run(`git merge --no-edit --allow-unrelated-histories ${newRev}`);
+              }
+              const updatedRev = await run('git rev-parse HEAD').catch(() => newRev);
+              await editStatus(`✅ *Updated to latest!*\nCommit: ${updatedRev?.slice(0, 7) || 'N/A'}`);
+            }
+          } catch (gitErr) {
+            await editStatus(`⚠️ *Git update skipped:* ${sanitizeGitErr(gitErr.message)}\nContinuing with current version...`);
           }
-        } catch (gitErr) {
-          await editStatus(`⚠️ *Git update skipped:* ${sanitizeGitErr(gitErr.message)}\nContinuing with current version...`);
         }
       }
 
