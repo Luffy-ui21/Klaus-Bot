@@ -1,12 +1,8 @@
-import axios from 'axios';
 import yts from 'yt-search';
 import { getBotName } from '../../lib/botname.js';
 import { getFooter } from '../../lib/menuHelper.js';
 import { sigLog } from '../../lib/sigLog.js';
-
-const XCASPER_API = 'https://apis.xcasper.space/api/downloader/yt-audio';
-const KEITH_BASE   = 'https://apiskeith.top/download';
-const BK9_BASE     = 'https://api.bk9.dev/download';
+import { downloadAudioWithFallback } from '../../lib/audioDownloader.js';
 
 // ── Search YouTube (fast — 5 second timeout) ──────────────────────────────
 async function searchYouTube(query) {
@@ -136,12 +132,12 @@ export default {
 
       await sock.sendMessage(jid, { react: { text: '📥', key: m.key } });
 
-      // Step 2: Download audio (same APIs as .song2)
-      const audioBuffer = await downloadAudio(ytUrl);
+      // Step 2: Download audio (downloads video → extracts audio with ffmpeg)
+      const audioBuffer = await downloadAudioWithFallback(ytUrl);
 
       if (!audioBuffer) {
         await sock.sendMessage(jid, { react: { text: '❌', key: m.key } });
-        return sock.sendMessage(jid, { text: '❌ *Download failed. Try .song2 <name> as alternative.*' }, { quoted: m });
+        return sock.sendMessage(jid, { text: '❌ *Download failed. Please try again later.*' }, { quoted: m });
       }
 
       const sizeMB = (audioBuffer.length / 1024 / 1024).toFixed(1);

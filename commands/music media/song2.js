@@ -124,20 +124,10 @@ export default {
 
       await sock.sendMessage(jid, { react: { text: '📥', key: m.key } });
 
-      // ── Step 2: Download AUDIO (not video) ─────────────────────────────────
-      let audioBuffer = null;
-
-      // 1️⃣ XCasper audio (same provider as .ytv video — confirmed working)
-      try { audioBuffer = await tryXcasperAudio(ytUrl); } catch (e) { console.log(`[YTV] xcasper: ${e.message}`); }
-
-      // 2️⃣ Keith audio
-      if (!audioBuffer) { try { audioBuffer = await tryKeithAudio(ytUrl); } catch (e) { console.log(`[YTV] keith: ${e.message}`); } }
-
-      // 3️⃣ BK9 audio
-      if (!audioBuffer) { try { audioBuffer = await tryBk9Audio(ytUrl); } catch (e) { console.log(`[YTV] bk9: ${e.message}`); } }
-
-      // 4️⃣ Fallback: downloadAudioWithFallback (yt-dlp + more APIs)
-      if (!audioBuffer) { audioBuffer = await downloadAudioWithFallback(ytUrl); }
+      // ── Step 2: Download AUDIO ────────────────────────────────────────────
+      // Uses downloadAudioWithFallback which downloads VIDEO (confirmed working)
+      // and extracts audio with ffmpeg. Audio-only APIs are dead.
+      let audioBuffer = await downloadAudioWithFallback(ytUrl);
 
       if (!audioBuffer) throw new Error('All audio providers failed');
 
