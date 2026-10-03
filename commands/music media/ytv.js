@@ -81,7 +81,7 @@ async function tryBk9Audio(ytUrl) {
 
 export default {
   name: 'ytv',
-  aliases: ['ytvid', 'keithtv', 'ytaudio'],
+  aliases: ['play2', 'ytvid', 'keithtv', 'ytaudio'],
   category: 'Downloader',
   description: 'Download YouTube audio (was video — now downloads audio)',
 
